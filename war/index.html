@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>login</title>
+	<link rel="stylesheet" type="text/css" href="./css/login/login.css">
+	<style>
+	
+	body{
+		margin:0px;
+		background:url("./image/login/background.png");
+		background-repeat;
+	}
+	</style>
+</head>
+<body>
+  <div class="loginContainer">
+	<div class="loginBar">
+		 <a href="loginPage" class="loginPic"><img src="./image/login/logo.png" /></a>
+		<table class="loginTable" Cellspacing="0">
+		<tr>
+			<td>
+				帳號
+		    </td>
+		     <td>
+		    	密碼
+			</td>
+		</tr>
+		<tr>
+			<td>
+			 	<input type="text" id="acnt" />	
+		    </td>
+		    <td>
+				<input type="text" id="pswd" />
+			</td>
+			<td>
+				<a href="main.html"><input type="button" id="loginBtn" value="login"/></a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="checkbox" id="rememberAcc" />
+				<label id="remeberAcclb">記住我</label>
+			</td>
+			<td>
+		    	<a href="fogetPwhtml" id="fogetPw">忘記密碼</a>
+			</td>
+		</tr>
+		</table>
+	</div>
+  </div>
+  <div class="registerContainer">
+   <div class="registerBar">
+	<table class="register" border="0" cellspacing="0">
+		<tr>
+			<td colspan="2">
+			<h1>免費終生學習</h1>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="text" id="lastName" class="restrData" placeholder="姓"/>
+			</td>
+			<td align=center>
+				<input type="text" id="firstName" class="restrData" placeholder="名字"/>
+			</td>
+		</tr>
+		<tr>
+			<td  colspan="2">
+				<input type="text" id="email" class="restrData" placeholder="電子郵件" size="50"/>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<input type="text" id="emailVerify" class="restrData" placeholder="再次輸入電子郵件" size="50"/>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<input type="text" id="regPswd" class="restrData" placeholder="密碼" size="50"/>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<input type="text" id="regPswdVerify" class="restrData" placeholder="再次輸入密碼" size="50"/>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				教育程度:
+				<select id="school">
+					<option>國小</option>
+					<option>國中</option>
+					<option>高中</option>
+				</select>
+				<select id="grade">
+					<option></option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a href="contract" id="contract">I agree the regulation</a>
+				<input type="checkbox" id="chkContract" />
+				<input type="button" id="regBtn" value="register"/>
+			</td>
+			
+		</tr>
+	</table>
+	<video src="http://r11---sn-o097znez.c.youtube.com/videoplayback?mv=m&ms=au&mt=1366550415&ratebypass=yes&itag=22&sver=3&id=o-ACcqYH1NtPHQO2ydgo-ylPdB437QLsjz-iycf-QLNyEx&source=youtube&newshard=yes&upn=0iiAEV80hb4&cp=U0hVS1VSUV9HUENONV9NTFVFOk9kTHZhVXpPd1RX&key=yt1&fexp=902001%2C916807%2C929202%2C916625%2C922912%2C924335%2C932000%2C932004%2C906383%2C916911%2C916910%2C902000%2C901208%2C919512%2C929903%2C925714%2C929119%2C931202%2C900821%2C900823%2C909419%2C911416%2C908529%2C904830%2C930807%2C919373%2C930803%2C906836%2C920201%2C929602%2C930101%2C930609%2C900824%2C912711&ipbits=8&gcr=tw&sparams=cp%2Cgcr%2Cid%2Cip%2Cipbits%2Citag%2Cratebypass%2Csource%2Cupn%2Cexpire&ip=1.169.181.79&expire=1366573426&signature=2B46780E552B0F0C766248041193ED88547C67BC.3227462D588313C8D00AD75102994CF5D979C1D5" controls width="420" height="240" id="video">
+	</video>
+   </div>
+  </div>
+</body>
+</html>
