@@ -1,0 +1,22 @@
+.up{
+	display: block;  
+	top: 0px;
+	width: 207px;  
+	height: 137px;  
+	background-image:url(../../image/uploader/upBtn.png);
+	line-height: 0;
+	font-size: 50px;
+	opacity: 1;
+	filter: alpha(opacity = 0);
+	-ms-filter: "alpha(opacity=0)";
+	cursor: pointer;
+	_cursor: hand;
+	margin: 0;
+	padding:0;
+}
+#up:hover{
+	opacity: 0.5;
+	filter: alpha(opacity = 0);
+	-ms-filter: "alpha(opacity=0)";
+	background-image:url(../../image/uploader/upBtn_hover.png);
+}

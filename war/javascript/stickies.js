@@ -10,13 +10,12 @@ var STICKIES = (function () {
 	},
 	openStickies = function openStickies() {
 		initStickies && initStickies();
-		/*for (var i = 0; i < localStorage.length; i++) {
+		for (var i = 0; i < localStorage.length; i++) {
 			createSticky(JSON.parse(localStorage.getItem(localStorage.key(i))));
-		}*/
+		}
 	},
 	createSticky = function createSticky(data) {
 		data = data || { id : +new Date(), top : "300px", left : "40px", text : "Note Here" }
-		
 		return $("<div />", { 
 			"class" : "sticky",
 			'id' : data.id
