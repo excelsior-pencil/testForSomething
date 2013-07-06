@@ -512,7 +512,48 @@
 			<div class="content">
 				<div class="videoPlayerFrame">					
 					<div class="vSrcContainer" width="800" >
-						<iframe id="vSrc" width="800" height="450" src="http://www.youtube.com/embed/7e9Kg8cv08Y" frameborder="0" allowfullscreen></iframe>
+						<!-- <iframe id="vSrc" width="800" height="450" src="http://www.youtube.com/embed/7e9Kg8cv08Y" frameborder="0" allowfullscreen></iframe> -->
+						<div id="player" width="800" height="450"></div>
+					    <script>
+					      // 2. This code loads the IFrame Player API code asynchronously.
+					      var tag = document.createElement('script');
+
+					      tag.src = "https://www.youtube.com/iframe_api";
+					      var firstScriptTag = document.getElementsByTagName('script')[0];
+					      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+					      // 3. This function creates an <iframe> (and YouTube player)
+					      //    after the API code downloads.
+					      var player;
+					      function onYouTubeIframeAPIReady() {
+					        player = new YT.Player('player', {
+					          height: '450',
+					          width: '800',
+					          videoId: '7e9Kg8cv08Y',
+					          events: {
+					            'onReady': onPlayerReady,
+					            //'onStateChange': onPlayerStateChange
+					          }
+					        });
+					      }
+					      // 4. The API will call this function when the video player is ready.
+					      function onPlayerReady(event) {
+					      	event.target.playVideo();
+					      }
+					      // 5. The API calls this function when the player's state changes.
+					      //    The function indicates that when playing a video (state=1),
+					      //    the player should play for six seconds and then stop.
+					      // var done = false;
+					      // function onPlayerStateChange(event) {
+					      //   if (event.data == YT.PlayerState.PLAYING && !done) {
+					      //     setTimeout(stopVideo, 6000);
+					      //     done = true;
+					      //   }
+					      // }
+					      // function stopVideo() {
+					      //   player.stopVideo();
+					      // }
+					    </script>
 						<img class="add-sticky" id="noteBtn" src="image/note_icon.png"></img>
 					</div>
 				</div>
@@ -596,6 +637,7 @@
 					        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
 					        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 					    })();
+					    
 					</script>
 					<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>		
 				</div>
