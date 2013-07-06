@@ -104,4 +104,5 @@
 			float: left;
 			border-right: 1px solid #999;
             margin-top:10px;
+            background: url('../../image/background.png') repeat;
 		}
