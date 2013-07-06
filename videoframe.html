@@ -1,0 +1,112 @@
+<style>
+
+		.videoPlayerFrame{
+			margin-left: 300px;			
+		}
+		.vSrcContainer{
+			padding-left: 30px;
+			padding-top: 60px;
+		}
+		.videoControlPanel{
+			margin-left: 300px; 
+			margin-left: 300px;
+		}
+		.videoControlElements{
+			padding-left: 30px;
+		}
+		.videoCmt{
+			margin-left: 300px;
+		}
+		#disqus_thread {
+			padding-left: 30px;
+			background-attachment: scroll;
+			background-repeat: repeat;
+			height: auto;			
+			width: 800px;
+			
+		}
+        #noteBtn{
+            width: 50px;
+            height: 50px;
+            margin-bottom: 386px;
+        }
+        #noteBtn:hover{
+            width: 64px;
+            height: 64px;
+        }
+		</style>
+<div class="content">
+				<div class="videoPlayerFrame">
+					<div class="vSrcContainer" width="800" >
+						<iframe id="vSrc" width="800" height="450" src="http://www.youtube.com/embed/7e9Kg8cv08Y" frameborder="0" allowfullscreen></iframe>
+						<img class="add-sticky" id="noteBtn" src="image/note_icon.png">
+					</div>
+				</div>
+				<script>
+					STICKIES.open(); // Button must declare before this line, or it would be a bug
+				</script>
+				<div class="videoControlPanel">
+					<div class="video-panel">
+						<div id="video-headline" class="clearfix">
+							<h1 id="video-headline-title">
+								<span class="uix-expander-head" dir="ltr" title="高中數學 第 一 節 數與式">
+									高中數學 第 一 節 數與式
+								</span>
+							</h1>
+						</div>
+						<div id="user-header">
+							<a href="" class="user-photo">
+								<span class="video-thumb">
+									<img src="./image/main/user_picture.png" alt="bahagamecrazy" width="48">
+									<span class="vertical-align"></span>
+								</span>
+							</a>
+							<a href="" class="ex-user-name" data-sessionlink="" dir="ltr">uploadperson</a>
+							<span class="user-separator">·</span>
+							<a class="user-videos" href="" data-sessionlink="">1 部影片</a>
+							<br>
+        					<span id="subscription-container">
+								<button class="subscription-button yt-uix-button" type="button"  data-style-type="branded" role="button">
+									<span class="uix-button-icon-wrapper">
+										<img class="uix-button-icon-subscribe" src="./image/main/book-v-icon-ok.png" alt="" title="">
+									</span>
+									<span class="uix-button-content">
+										<span class="subscribe-label" aria-label="訂閱">訂閱</span>
+										<span class="subscribed-label" aria-label="取消訂閱">已訂閱</span>
+										<span class="unsubscribe-label" aria-label="取消訂閱">取消訂閱</span>
+									</span>
+								</button>
+							</span>
+							<div id="videos-views-info">
+								<span class="watch-view-count">觀看次數	1,204</span>
+								<div class="video-extras-sparkbars">
+									<div class="video-extras-sparkbar-likes" style="width: 96.7213114754%"></div>
+									<div class="video-extras-sparkbar-dislikes" style="width: 3.27868852459%"></div>
+								</div>
+								<span class="likes-dislikes-content">
+									<img class="icon-watch-stats-like" src="./image/main/ok-like-button.png" alt="喜歡">
+									<span class="likes-count">118</span>
+										&nbsp;&nbsp;&nbsp;
+									<img class="icon-watch-stats-dislike" src="./image/main/ok-dislike-button.png" alt="不喜歡">
+									<span class="dislikes-count">4</span>
+								</span>
+							</div>
+						</div>
+						<div id="likes-dislikes-btn-actions" class="clearfix">
+							<span id="watch-like-dislike-buttons" class="uix-button-group" data-button-toggle-group="optional">
+								<button id="watch-like" onclick="" title="我喜歡" type="button" class=" yt-uix-button" role="button">
+									<span class="uix-button-icon-wrapper">
+										<img class="uix-button-icon-watch-like" src="./image/main/oko-like-button.png" alt="我喜歡" title="">
+									</span>
+									<span class="yt-uix-button-content">Like </span>
+								</button>
+								<button id="watch-dislike" onclick="" title="我不喜歡" type="button" class=" yt-uix-button" role="button">
+									<span class="uix-button-icon-wrapper">
+										<img class="uix-button-icon-watch-dislike" src="./image/main/oko-dislike-button.png" alt="我不喜歡" title="">
+									</span>
+								</button>
+							</span>
+						</div>
+					</div>
+ 				</div>
+			</div>

@@ -1,9 +1,9 @@
-
 <!DOCTYPE html>
 <html>
 	<head>
 		<title>main</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="css/main/main.css" rel="stylesheet" type="text/css" />
 		<link href="css/main/videoList.css" rel="stylesheet" type="text/css" />
 		<link href="css/main/state.css" rel="stylesheet" type="text/css" />
 		<script src="javascript/common.js" type="text/javascript"></script>
@@ -17,91 +17,6 @@
 		<link href="css/main/skins/demo.css" rel="stylesheet" type="text/css" />
 		<script type="text/javascript" src="javascript/jquery.cookie.js"></script>
 		<script type="text/javascript" src="javascript/jquery.dcdrilldown.1.2.min.js"></script>
-		<style>
-		body{
-			margin: 0px;
-		}
-		.bodyContainer{
-			padding-top:0px;
-		}
-		.topBarContainer{
-			padding-top: 8px;
-			padding-bottom: 8px;
-			background-color: #4cbbd3;
-			height:34px;
-		}
-		.topBar{
-			margin:0 auto;
-			height:34px;
-			width:1000px
-		}
-		.logoPic{
-			float: left;
-			width: 120px;
-			height:40px;
-			margin-right: 30px;
-		}
-		.search{
-
-		}
-		#searcbar{
-			width: 300px;
-			font-size: 20px;
-			border-right: 1px solid white;
-			border-top: 1px solid black;
-			border-bottom: 1px solid black;
-			border-left: 1px solid black;
-			
-		}
-		#searchbtn{
-			width: 25px;
-			height: 25px;
-			margin-top: 1px;
-			background-color: white;
-			border-right: 1px solid black;
-			border-top: 1px solid black;
-			border-bottom: 1px solid black;
-			border-left: 1px solid black;
-		}
-		 .logoPic:hover{
-			background-color: #0099FF;
-		}
-		#searchbtn:hover{
-			background-color: #FFFFCC;
-		}
-		.leftControl{
-			height: 917px;
-			width: 250px;
-			float: left;
-			border-right: 1px solid #999;
-		}
-		.videoPlayerFrame{
-			margin-left: 300px;			
-		}
-		.vSrcContainer{
-			padding-left: 30px;
-			padding-top: 60px;
-		}
-		.videoControlPanel{
-			margin-left: 300px; 
-			margin-left: 300px;
-		}
-		.videoControlElements{
-			padding-left: 30px;
-		}
-		.videoCmt{
-			margin-left: 300px;
-		}
-		#disqus_thread {
-			padding-left: 30px;
-			background-attachment: scroll;
-			background-repeat: repeat;
-			height: auto;			
-			width: 800px;
-			
-		}
-		
-		</style>
 		<script language="JavaScript">
 			$(document).ready(function() {
 				$(".topnav").accordion({
@@ -125,30 +40,66 @@
 				  }
 				}
 		</script>
+
 	</head>
-	<body>
+	<body onload>
 		<div class="bodyContainer">
 			<div class="topBarContainer">
 				<div class="topBar">
 					<div class="logoPic">
 						<a href=""><img src="./image/login/logo.png" width="120px" height="40px"/></a>
 					</div>
-					
-					<div class="search">
-					  
-					  <table cellspacing="0px" cellpadding="0px">
-					    <tr>
-					      <td>
-						  	<input type="text" id="searcbar"/>
-						  </td>
-						  <td>
-						   <input type="image" img src="./image/search.png" id="searchbtn" onclick="show('result')"/>
-						  </td>
-						</tr>
-					  </table>
-					  
-					</div>
-				</div>
+                    <button class="icon" id="history"><img src="./image/history.png" width="30px" height="30px"/></button>
+                    <button class="icon" id="note"><img src="./image/note.png" width="30px" height="30px"/></button>
+                    <button class="icon" id="watchLater"><img src="./image/watchLater.png" width="30px" height="30px"/></button>
+                    <button class="icon" id="playWatchLater"><img src="./image/playWatchLater.png" width="30px" height="30px"/></button>
+                    <button class="icon" id="preference"><img src="./image/preference.png" width="30px" height="30px"/></button>
+                    <button class="icon" id="color"><img id="colorImg" src="./image/colorDown.png" width="15px" height="15px"/></button>
+
+
+
+                    <div id="colorMenu">
+                        <div class="colorType" id="lightSeaGreen"></div>
+                        <div class="colorType" id="mediumPurple"></div>
+                        <div class="colorType" id="orangered"></div>
+                        <div class="colorType" id="blue"></div>
+                        <div class="colorType" id="firebrick"></div>
+                    </div>
+
+                    <script>
+                        $( "#colorMenu" ).hide();
+                        $( "#color" ).click(function() {
+                            if($("#colorImg").attr("src")=="./image/colorDown.png"){
+                                $( "#colorMenu" ).show( "bounce", 100 );
+                                $("#colorImg").attr("src","./image/colorUp.png")
+                            }
+                            else{
+                                $( "#colorMenu" ).hide();
+                                $("#colorImg").attr("src","./image/colorDown.png")
+                            }
+                        });
+                        $("#lightSeaGreen").click(function() {
+                            $(".topBarContainer").css("background-color","#4cbbd3");
+                            $(".icon").css("background-color","#4cbbd3");
+                        });
+                        $("#mediumPurple").click(function() {
+                            $(".topBarContainer").css("background-color","mediumPurple");
+                            $(".icon").css("background-color","mediumPurple");
+                        });
+                        $("#orangered").click(function() {
+                            $(".topBarContainer").css("background-color","orangered");
+                            $(".icon").css("background-color","orangered");
+                        });
+                        $("#blue").click(function() {
+                            $(".topBarContainer").css("background-color","blue");
+                            $(".icon").css("background-color","blue");
+                        });
+                        $("#firebrick").click(function() {
+                            $(".topBarContainer").css("background-color","#CC6666");
+                            $(".icon").css("background-color","#CC6666");
+                        });
+                    </script>
+                </div>
 			</div>
 			<div class="leftControl">
 				<script language="JavaScript">
@@ -249,358 +200,8 @@
 				<div class="clear"></div>
 			</div>
 			<div class="content">
-				<div id="result" style='display:none;'>
-					<ol id="search-result">
-						<li class="v-frame">
-							<div class="v-img-frame">
-								<span>
-									<span class="v-duration">
-										3:14
-									</span>
-									<a href=""><img   class="v-img" src="http://i4.ytimg.com/vi/g0XpNvLWimo/mqdefault.jpg" /></a>
-								</span>
-							</div>
-							<div class="v-content">
-								<a class="title" href="">kara Pandora</a>
-								<p class="description">影片提供者:kaun</br>觀看次數:35948895120</br>介紹:非常好看的影片<p>
-							</div>
-						</li>
-						<li class="v-frame">
-							<div class="v-img-frame">
-								<span>
-									<span class="v-duration">
-										3:14
-									</span>
-									<a href=""><img   class="v-img" src="http://i4.ytimg.com/vi/s2EQm6WPMHs/mqdefault.jpg" /></a>
-								</span>
-							</div>
-							<div class="v-content">
-								<a class="title" href="">kara Pandora</a>
-								<p class="description">影片提供者:kaun</br>觀看次數:35948895120</br>介紹:非常好看的影片<p>
-							</div>
-						</li>
-						<li class="v-frame">
-							<div class="v-img-frame">
-								<span>
-									<span class="v-duration">
-										3:14
-									</span>
-									<a href=""><img   class="v-img" src="http://i3.ytimg.com/vi/zYoYoBtLqOY/mqdefault.jpg" /></a>
-								</span>
-							</div>
-							<div class="v-content">
-								<a class="title" href="">kara Pandora</a>
-								<p class="description">影片提供者:kaun</br>觀看次數:35948895120</br>介紹:非常好看的影片<p>
-							</div>
-						</li>
-						<li class="v-frame">
-							<div class="v-img-frame">
-								<span>
-									<span class="v-duration">
-										3:14
-									</span>
-									<a href=""><img   class="v-img" src="http://i4.ytimg.com/vi/CohHJA2IljA/mqdefault.jpg" /></a>
-								</span>
-							</div>
-							<div class="v-content">
-								<a class="title" href="">kara Pandora</a>
-								<p class="description">影片提供者:kaun</br>觀看次數:35948895120</br>介紹:非常好看的影片<p>
-							</div>
-						</li>
-						<li class="v-frame">
-							<div class="v-img-frame">
-								<span>
-									<span class="v-duration">
-										3:14
-									</span>
-									<a href=""><img   class="v-img" src="http://i3.ytimg.com/vi/R_7BphFdj2M/mqdefault.jpg" /></a>
-								</span>
-							</div>
-							<div class="v-content">
-								<a class="title" href="">kara Pandora</a>
-								<p class="description">影片提供者:kaun</br>觀看次數:35948895120</br>介紹:非常好看的影片<p>
-							</div>
-						</li>
-						<li class="v-frame">
-							<div class="v-img-frame">
-								<span>
-									<span class="v-duration">
-										3:14
-									</span>
-									<a href=""><img   class="v-img" src="http://i4.ytimg.com/vi/sJymF4JMJYA/mqdefault.jpg" /></a>
-								</span>
-							</div>
-							<div class="v-content">
-								<a class="title" href="">kara Pandora</a>
-								<p class="description">影片提供者:kaun</br>觀看次數:35948895120</br>介紹:非常好看的影片<p>
-							</div>
-						</li>
-						<li class="v-frame">
-							<div class="v-img-frame">
-								<span>
-									<span class="v-duration">
-										3:14
-									</span>
-									<a href=""><img   class="v-img" src="http://i3.ytimg.com/vi/rFL7aox1VmQ/mqdefault.jpg" /></a>
-								</span>
-							</div>
-							<div class="v-content">
-								<a class="title" href="">kara Pandora</a>
-								<p class="description">影片提供者:kaun</br>觀看次數:35948895120</br>介紹:非常好看的影片<p>
-							</div>
-						</li>
-						<div id="pageChanger" role="navigation" style="margin-top: 10px;">  
-								<a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="1">
-						        	<span class="page-button-content">« 前一頁</span></a>
-								<a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="1" aria-label="前往第 1 頁">
-						        	<span class="page-button-content">1</span></a>
-						        <a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="2" aria-label="前往第 2 頁">
-						        	<span class="page-button-content">2</span></a>
-						        <a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="3" aria-label="前往第 3 頁">
-						        	<span class="page-button-content">3</span></a>
-						        <a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="4" aria-label="前往第 4 頁">
-						        	<span class="page-button-content">4</span></a>
-						        <a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="5" aria-label="前往第 5 頁">
-						        	<span class="page-button-content">5</span></a>
-						        <a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="6" aria-label="前往第 6 頁">
-						        	<span class="page-button-content">6</span></a>
-						        <a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="7" aria-label="前往第 7 頁">
-						        	<span class="page-button-content">7</span></a>
-								<a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="3">
-						        	<span class="page-button-content">下一頁 »</span></a>
-						  </div>
-					 </ol>
-    				</div>    				
-				</div>
-			</div>
-			<div class="content">
-				<div id="result" style='display:none;'>
-					<ol id="search-result">
-						<li class="v-frame">
-							<div class="v-img-frame">
-								<span>
-									<span class="v-duration">
-										3:14
-									</span>
-									<a href=""><img   class="v-img" src="http://i4.ytimg.com/vi/g0XpNvLWimo/mqdefault.jpg" /></a>
-								</span>
-							</div>
-							<div class="v-content">
-								<a class="title" href="">kara Pandora</a>
-								<p class="description">影片提供者:kaun</br>觀看次數:35948895120</br>介紹:非常好看的影片<p>
-							</div>
-						</li>
-						<li class="v-frame">
-							<div class="v-img-frame">
-								<span>
-									<span class="v-duration">
-										3:14
-									</span>
-									<a href=""><img   class="v-img" src="http://i4.ytimg.com/vi/s2EQm6WPMHs/mqdefault.jpg" /></a>
-								</span>
-							</div>
-							<div class="v-content">
-								<a class="title" href="">kara Pandora</a>
-								<p class="description">影片提供者:kaun</br>觀看次數:35948895120</br>介紹:非常好看的影片<p>
-							</div>
-						</li>
-						<li class="v-frame">
-							<div class="v-img-frame">
-								<span>
-									<span class="v-duration">
-										3:14
-									</span>
-									<a href=""><img   class="v-img" src="http://i3.ytimg.com/vi/zYoYoBtLqOY/mqdefault.jpg" /></a>
-								</span>
-							</div>
-							<div class="v-content">
-								<a class="title" href="">kara Pandora</a>
-								<p class="description">影片提供者:kaun</br>觀看次數:35948895120</br>介紹:非常好看的影片<p>
-							</div>
-						</li>
-						<li class="v-frame">
-							<div class="v-img-frame">
-								<span>
-									<span class="v-duration">
-										3:14
-									</span>
-									<a href=""><img   class="v-img" src="http://i4.ytimg.com/vi/CohHJA2IljA/mqdefault.jpg" /></a>
-								</span>
-							</div>
-							<div class="v-content">
-								<a class="title" href="">kara Pandora</a>
-								<p class="description">影片提供者:kaun</br>觀看次數:35948895120</br>介紹:非常好看的影片<p>
-							</div>
-						</li>
-						<li class="v-frame">
-							<div class="v-img-frame">
-								<span>
-									<span class="v-duration">
-										3:14
-									</span>
-									<a href=""><img   class="v-img" src="http://i3.ytimg.com/vi/R_7BphFdj2M/mqdefault.jpg" /></a>
-								</span>
-							</div>
-							<div class="v-content">
-								<a class="title" href="">kara Pandora</a>
-								<p class="description">影片提供者:kaun</br>觀看次數:35948895120</br>介紹:非常好看的影片<p>
-							</div>
-						</li>
-						<li class="v-frame">
-							<div class="v-img-frame">
-								<span>
-									<span class="v-duration">
-										3:14
-									</span>
-									<a href=""><img   class="v-img" src="http://i4.ytimg.com/vi/sJymF4JMJYA/mqdefault.jpg" /></a>
-								</span>
-							</div>
-							<div class="v-content">
-								<a class="title" href="">kara Pandora</a>
-								<p class="description">影片提供者:kaun</br>觀看次數:35948895120</br>介紹:非常好看的影片<p>
-							</div>
-						</li>
-						<li class="v-frame">
-							<div class="v-img-frame">
-								<span>
-									<span class="v-duration">
-										3:14
-									</span>
-									<a href=""><img   class="v-img" src="http://i3.ytimg.com/vi/rFL7aox1VmQ/mqdefault.jpg" /></a>
-								</span>
-							</div>
-							<div class="v-content">
-								<a class="title" href="">kara Pandora</a>
-								<p class="description">影片提供者:kaun</br>觀看次數:35948895120</br>介紹:非常好看的影片<p>
-							</div>
-						</li>
-						<div id="pageChanger" role="navigation" style="margin-top: 10px;">  
-								<a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="1">
-						        	<span class="page-button-content">« 前一頁</span></a>
-								<a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="1" aria-label="前往第 1 頁">
-						        	<span class="page-button-content">1</span></a>
-						        <a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="2" aria-label="前往第 2 頁">
-						        	<span class="page-button-content">2</span></a>
-						        <a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="3" aria-label="前往第 3 頁">
-						        	<span class="page-button-content">3</span></a>
-						        <a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="4" aria-label="前往第 4 頁">
-						        	<span class="page-button-content">4</span></a>
-						        <a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="5" aria-label="前往第 5 頁">
-						        	<span class="page-button-content">5</span></a>
-						        <a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="6" aria-label="前往第 6 頁">
-						        	<span class="page-button-content">6</span></a>
-						        <a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="7" aria-label="前往第 7 頁">
-						        	<span class="page-button-content">7</span></a>
-								<a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="3">
-						        	<span class="page-button-content">下一頁 »</span></a>
-						  </div>
-					 </ol>
-    				</div>
-				</div>
-			</div>
-			<style>
-				#noteBtn{					
-					width: 50px;
-					height: 50px;
-					margin-bottom: 386px;
-				}
-				#noteBtn:hover{
-					width: 64px;
-					height: 64px;
-				}
-			</style>
-			<div class="content">
-				<div class="videoPlayerFrame">					
-					<div class="vSrcContainer" width="800" >
-						<iframe id="vSrc" width="800" height="450" src="http://www.youtube.com/embed/7e9Kg8cv08Y" frameborder="0" allowfullscreen></iframe>
-						<img class="add-sticky" id="noteBtn" src="image/note_icon.png"></img>
-					</div>
-				</div>
-				<script>
-					STICKIES.open(); // Button must declare before this line, or it would be a bug
-				</script>				
-				<div class="videoControlPanel">
-					<div class="video-panel">
-						<div id="video-headline" class="clearfix">
-							<h1 id="video-headline-title">
-								<span class="uix-expander-head" dir="ltr" title="高中數學 第 一 節 數與式">
-									高中數學 第 一 節 數與式
-								</span>
-							</h1>
-						</div>
-						<div id="user-header">
-							<a href="" class="user-photo">
-								<span class="video-thumb">
-									<img src="./image/main/user_picture.png" alt="bahagamecrazy" width="48">
-									<span class="vertical-align"></span>
-								</span>
-							</a>
-							<a href="" class="ex-user-name" data-sessionlink="" dir="ltr">uploadperson</a>
-							<span class="user-separator">·</span>
-							<a class="user-videos" href="" data-sessionlink="">1 部影片</a>
-							<br>
-        					<span id="subscription-container">
-								<button class="subscription-button yt-uix-button" type="button"  data-style-type="branded" role="button">
-									<span class="uix-button-icon-wrapper">
-										<img class="uix-button-icon-subscribe" src="./image/main/book-v-icon-ok.png" alt="" title="">
-									</span>
-									<span class="uix-button-content">
-										<span class="subscribe-label" aria-label="訂閱">訂閱</span>
-										<span class="subscribed-label" aria-label="取消訂閱">已訂閱</span>
-										<span class="unsubscribe-label" aria-label="取消訂閱">取消訂閱</span>
-									</span>
-								</button>
-							</span>
-							<div id="videos-views-info">
-								<span class="watch-view-count">觀看次數	1,204</span>
-								<div class="video-extras-sparkbars">
-									<div class="video-extras-sparkbar-likes" style="width: 96.7213114754%"></div>
-									<div class="video-extras-sparkbar-dislikes" style="width: 3.27868852459%"></div>
-								</div>
-								<span class="likes-dislikes-content">
-									<img class="icon-watch-stats-like" src="./image/main/ok-like-button.png" alt="喜歡">
-									<span class="likes-count">118</span>
-										&nbsp;&nbsp;&nbsp;   
-									<img class="icon-watch-stats-dislike" src="./image/main/ok-dislike-button.png" alt="不喜歡">
-									<span class="dislikes-count">4</span>
-								</span>
-							</div>
-						</div>
-						<div id="likes-dislikes-btn-actions" class="clearfix">
-							<span id="watch-like-dislike-buttons" class="uix-button-group" data-button-toggle-group="optional">
-								<button id="watch-like" onclick="" title="我喜歡" type="button" class=" yt-uix-button" role="button">
-									<span class="uix-button-icon-wrapper">
-										<img class="uix-button-icon-watch-like" src="./image/main/oko-like-button.png" alt="我喜歡" title="">
-									</span>
-									<span class="yt-uix-button-content">Like </span>
-								</button>
-								<button id="watch-dislike" onclick="" title="我不喜歡" type="button" class=" yt-uix-button" role="button">
-									<span class="uix-button-icon-wrapper">
-										<img class="uix-button-icon-watch-dislike" src="./image/main/oko-dislike-button.png" alt="我不喜歡" title="">
-									</span>
-								</button>
-							</span>
-						</div>
-					</div>
- 				</div>
-				<div class="videoCmt">
-					<div id="disqus_thread">123</div>
-					<script type="text/javascript">
-					    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-					    var disqus_shortname = 'testforalistar'; 
-					    /* * * DON'T EDIT BELOW THIS LINE * * */
-					    (function() {
-					        var dsq = document.createElement('script'); 
-							dsq.type = 'text/javascript'; 
-							dsq.async = true;
-					        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-					        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-					    })();
-					</script>
-					<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>		
-				</div>
+                <input type="text" id="searchBar"/>
 			</div>
 		</div>
-		
 	</body>
 </html>

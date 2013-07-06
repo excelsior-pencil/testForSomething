@@ -1,0 +1,107 @@
+		body{
+			margin:0px;
+		}
+		.bodyContainer{
+			padding-top:0px;
+            width:100%;
+            height:100%;
+		}
+		.topBarContainer{
+			padding-top: 8px;
+			padding-bottom: 8px;
+			background-color: #CC6666;
+			height:34px;
+		}
+		.topBar{
+			margin:0 auto;
+			height:34px;
+			width:1000px
+		}
+		.logoPic{
+			float: left;
+			width: 120px;
+			height:40px;
+			margin-right: 30px;
+		}
+        .icon{
+            width: 30px;
+            height: 30px;
+            padding: 0px;
+            margin-top:5px;
+            margin-bottom: 5px;
+            margin-left:10px;
+            border: 0;
+            background-color: #CC6666;
+        }
+        #history{
+            margin-left:550px;
+        }
+        #color{
+            width: 15px;
+            height: 15px;
+            margin-left:50px;
+            margin-bottom:0px;
+        }
+        .content{
+            padding-left:0px;
+        }
+
+		#searchBar{
+            margin:10px 0px 0px 100px;
+			width: 300px;
+			font-size: 20px;
+			border-right: 1px solid black;
+			border-top: 1px solid black;
+			border-bottom: 1px solid black;
+			border-left: 1px solid black;
+            background: white url(../../image/search.png) no-repeat 5px 50%;
+            background-size: 19px 19px;
+            padding: 2px 0px 2px 25px;
+            white-space:nowrap;
+		}
+        #colorMenu{
+            margin-left: 957px;
+            margin-top: 1px;
+        }
+        .colorType{
+            width: 25px;
+            height: 15px;
+            border:#000000 solid 1px;
+        }
+        .colorType:hover{
+            cursor: pointer;
+        }
+        #lightSeaGreen{
+            background: #4cbbd3;
+        }
+        #mediumPurple{
+            background: mediumPurple;
+        }
+        #orangered{
+            background: orangered;
+        }
+        #blue{
+            background: blue;
+        }
+        #firebrick{
+            background: #CC6666;
+        }
+        .icon:hover{
+            filter:alpha(Opacity=50, Style=0);/*for ie*/
+            -moz-opacity:0.5;/* Moz + FF */
+            opacity: 0.5;
+            cursor: pointer;
+        }
+		.logoPic:hover{
+
+            filter:alpha(Opacity=50, Style=0);/*for ie*/
+            -moz-opacity:0.5;/* Moz + FF */
+            opacity: 0.5;
+		}
+		.leftControl{
+			height: 917px;
+			width: 250px;
+			float: left;
+			border-right: 1px solid #999;
+            margin-top:10px;
+		}
