@@ -1,4 +1,5 @@
 							// 1. init
+							// The JS file control the player's behaviors, and also draw the progress bar. You can modify the code in the JS file to adjust the drawing.
 							var progress = document.getElementById("videoProgress");
 					    	// 2. This code loads the IFrame Player API code asynchronously.
 					    	var tag = document.createElement('script');
@@ -26,7 +27,6 @@
 					    	function onPlayerReady(event) {
 					    		event.target.playVideo();
 					    		videoDuration = player.getDuration();
-					    		alert(videoDuration);
 					     	}					      
 						      // 5. The API calls this function when the player's state changes.
 						      //    The function indicates that when playing a video (state=1),
