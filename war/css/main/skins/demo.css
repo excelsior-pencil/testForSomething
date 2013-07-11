@@ -9,7 +9,11 @@
 .demo-dd .dd-menu li a .dd-count {position: absolute; top: 8px; right: 40px;}
 .demo-dd .dd-menu li.dd-parent a {}
 .demo-dd .dd-menu li.dd-parent li a {padding: 8px 10px 8px 25px;}
-.demo-dd .dd-menu li.dd-parent li a img{float: right;}
+.demo-dd .dd-menu li.dd-parent li a img{
+    width: 20px;
+    height: 20px;
+    vertical-align: -5px;
+}
 .demo-dd .dd-menu li.dd-parent li a.dd-parent-a {padding: 8px 10px; background: url(images/bg_clean_on.png) repeat-x 0 0;}
 .demo-dd .dd-menu li.dd-parent a.active {background: url(images/bg_clean.png) repeat-x 0 0;}
 .demo-dd .dd-menu li.dd-parent a:hover {}

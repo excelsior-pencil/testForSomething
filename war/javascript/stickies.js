@@ -61,7 +61,8 @@ var STICKIES = (function () {
 					id  : sticky.attr("id"),
 					top : sticky.css("top"),
 					left: sticky.css("left"),
-					text: sticky.children(".sticky-content").html()				}
+					text: sticky.children(".sticky-content").html()
+                }
 		localStorage.setItem("sticky-" + obj.id, JSON.stringify(obj));	
 		sticky.find(".sticky-status").text("saved");
 	},

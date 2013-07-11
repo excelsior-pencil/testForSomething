@@ -1,6 +1,7 @@
 							// 1. init
 							// The JS file control the player's behaviors, and also draw the progress bar. You can modify the code in the JS file to adjust the drawing.
-							var progress = document.getElementById("videoProgress");
+                            var progress;
+                            progress = document.getElementById("videoProgress");
 					    	// 2. This code loads the IFrame Player API code asynchronously.
 					    	var tag = document.createElement('script');
 					      	tag.src = "https://www.youtube.com/iframe_api";
@@ -43,23 +44,23 @@
 							    // The future will query the server to get the user's learning progress table and show the picture.
 							    if(durationQuarter > 0.9){
 							   		progress.value = 100;
-							   		document.JH_math_1.src = "http://www.veryicon.com/icon/png/System/Red%20CandyBar/Apple%20Logo%20Red.png";
+							   		document.JH_math1_1_1.src = "./image/main/progSet/prog4.png";
 							   	}
 						      	else if(durationQuarter > 0.75){
 						      		progress.value = 75;
-						      		document.JH_math_1.src = "http://www.iconlet.com/icons/kensaunders/5/1/Apple.png";
+						      		document.JH_math1_1_1.src = "./image/main/progSet/prog3.png";
 								}
 						      	else if(durationQuarter > 0.5){
 						      		progress.value = 50;
-						      		document.JH_math_1.src ="http://www.iconeasy.com/icon/png/System/Candied%20Apples/Candy%20Apple%20Blue%202.png";
+						      		document.JH_math1_1_1.src ="./image/main/progSet/prog2.png";
 						      	}
 						      	else if(durationQuarter > 0.25){
 							  		progress.value = 25;
-							  		document.JH_math_1.src ="http://www.iconpng.com/png/phuzion/apple.png";
+							  		document.JH_math1_1_1.src ="./image/main/progSet/prog1.png";
 						      	}
 						      	else{
 						      		progress.value = 0;
-						      		document.JH_math_1.src ="http://upload.wikimedia.org/wikipedia/zh/6/61/Apple_Safari.png";
+						      		document.JH_math1_1_1.src ="./image/main/progSet/prog0.png";
 						   		}
 						   		currentDurationRate = player.getCurrentTime() / videoDuration;
 

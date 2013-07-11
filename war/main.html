@@ -8,15 +8,14 @@
 		<link href="css/main/state.css" rel="stylesheet" type="text/css" />
 		<script src="javascript/common.js" type="text/javascript"></script>
 		<script src="javascript/jquery-1.9.1.min.js" type="text/javascript"></script>
-  		<script src="./javascript/jquery.min.js"></script> 
+  		<script src="./javascript/jquery.min.js"></script>
 		<link rel="stylesheet" href="./css/main/stickies.css" />
 	  	<script src="./javascript/jquery-ui.min.js"></script>
 	  	<script src="./javascript/json2.js"></script>
 	  	<script src="./javascript/stickies.js"></script>
-	  	<link href="css/main/dcdrilldown.css" rel="stylesheet" type="text/css" />
-		<link href="css/main/skins/demo.css" rel="stylesheet" type="text/css" />
 		<script type="text/javascript" src="javascript/jquery.cookie.js"></script>
-		<script type="text/javascript" src="javascript/jquery.dcdrilldown.1.2.min.js"></script>
+        <script src="./javascript/linkes_drilldown.js" type="text/javascript"></script>
+        <link href="./css/main/linkes_drilldown.css" rel="stylesheet" type="text/css">
 		<style>
 		body{
 			margin: 0px;
@@ -51,7 +50,7 @@
 			border-top: 1px solid black;
 			border-bottom: 1px solid black;
 			border-left: 1px solid black;
-			
+
 		}
 		#searchbtn{
 			width: 25px;
@@ -70,20 +69,20 @@
 			background-color: #FFFFCC;
 		}
 		.leftControl{
-			height: 917px;
-			width: 250px;
+            width: 250px;
 			float: left;
 			border-right: 1px solid #999;
+            overflow: scroll;
 		}
 		.videoPlayerFrame{
-			margin-left: 300px;			
+			margin-left: 300px;
 		}
 		.vSrcContainer{
 			padding-left: 30px;
 			padding-top: 60px;
 		}
 		.videoControlPanel{
-			margin-left: 300px; 
+			margin-left: 300px;
 			margin-left: 300px;
 		}
 		.videoControlElements{
@@ -96,34 +95,40 @@
 			padding-left: 30px;
 			background-attachment: scroll;
 			background-repeat: repeat;
-			height: auto;			
+			height: auto;
 			width: 800px;
-			
+
 		}
-		
+
 		</style>
 		<script language="JavaScript">
-			$(document).ready(function() {
-				$(".topnav").accordion({
-					accordion:false,
-					speed: 500,
-					closedSign: '[+]',
-					openedSign: '[-]'
-				});
-			});
+//			$(document).ready(function() {
+//				$(".topnav").accordion({
+//					accordion:false,
+//					speed: 500,
+//					closedSign: '[+]',
+//					openedSign: '[-]'
+//				});
+//			});
 			function show(id)
 				{
 				  var o=document.getElementById(id);
 				  if( o.style.display == 'none' )
 				  {
 				    o.style.display='block';
-				    
+
 				  }
 				  else
 				  {
 				    o.style.display='none';
 				  }
 				}
+            $(function(){
+                $('.drillDownMenu').linkesDrillDown();
+
+                /*this is just to present something when clicking a dummy link*/
+                $('a[href="#a"]').attr('href','javascript:void(0);'); //按下東西可以綁事件
+            });
 		</script>
 	</head>
 	<body>
@@ -133,9 +138,9 @@
 					<div class="logoPic">
 						<a href=""><img src="./image/login/logo.png" width="120px" height="40px"/></a>
 					</div>
-					
+
 					<div class="search">
-					  
+
 					  <table cellspacing="0px" cellpadding="0px">
 					    <tr>
 					      <td>
@@ -146,108 +151,225 @@
 						  </td>
 						</tr>
 					  </table>
-					  
+
 					</div>
 				</div>
 			</div>
-			<div class="leftControl">
-				<script language="JavaScript">
-					$(document).ready(function($){
-						$('#drilldown').dcDrilldown({
-								speed       		: 'slow',
-								saveState		: true,
-								showCount		: false,
-								linkType		: 'breadcrumb'
-						});
-					});
-					function show(id)
-					{
-						var o=document.getElementById(id);
-						if( o.style.display == 'none' )
-							o.style.display='block';
-						else
-							o.style.display='none';  
-					}
-				</script>
-				<div class="demo-dd demo-container">
-				<ul id="drilldown">
-					<li><a href="#">國小</a>
-					  <ul>
-						<li><a href="#">Page 1</a></li>
-						<li><a href="#">Page 2</a></li>
-						<li><a href="#">Page 3</a></li>
-						<li><a href="#">Page 4</a></li>
-					  </ul>
-					</li>
-					<li><a href="#">國中</a>
-					  <ul>
-						 <li><a href="#">第一冊</a>
-							<ul>
-							   <li><a href="#">數學</a>
-								 <ul>
-								   <li><a href="#">一元一次方程式<img name="JH_math_1" width="14px" height="14px"/></a></li>
-								   <li><a href="#">數與數線</a></li>
-								 </ul>
-							   </li>
-							   <li><a href="#">理化</a>
-                                   <ul>
-                                       <li><a href="#">理化的學習</a>
-                                           <ul>
-                                               <li><a href="#">上課中</a></li>
-                                               <li><a href="#">離開實驗前</a></li>
-                                               <li><a href="#">實驗室中學生常見的危險行為</a></li>
-                                           </ul>
-                                       </li>
-                                       <li><a href="#">進入實驗室</a>
-                                           <ul>
-                                               <li><a href="#">上課中</a></li>
-                                               <li><a href="#">離開實驗前</a></li>
-                                               <li><a href="#">實驗室中學生常見的危險行為</a></li>
-                                           </ul>
-                                       </li>
-                                       <li><a href="#">簡單的測量</a>
-                                           <ul>
-                                               <li><a href="#">時間的估計</a></li>
-                                               <li><a href="#">使用直尺測量長度</a></li>
-                                               <li><a href="#">使用量筒量取液體體積</a></li>
-                                           </ul>
-                                       </li>
-                                   </ul>
-								</li>
-							</ul>
-						 </li>				 
-						 <li><a href="#">第二冊</a>
-							<ul>
-							   <li><a href="#">數學</a>
-								 <ul>
-								   <li><a href="#">二元一次方程式</a></li>
-								   <li><a href="#">圖論</a></li>
-								 </ul>
-							   </li>
-							</ul>
-						 </li>
-					  </ul>		
-					</li>
-					<li><a href="#">高中</a>
-					  <ul>
-						<li><a href="#">Page 1</a></li>
-						<li><a href="#">Page 2</a></li>
-						<li><a href="#">Page 3</a></li>
-						<li><a href="#">Page 4</a></li>
-					  </ul>
-					</li>
-					<li><a href="#">關於</a>
-					  <ul>
-						<li><a href="#">Page 1</a></li>
-						<li><a href="#">Page 2</a></li>
-						<li><a href="#">Page 3</a></li>
-						<li><a href="#">Page 4</a></li>
-					  </ul>
-					</li>
-				</ul>
-				</div>
-				<div class="clear"></div>
-			</div>
+            <div class="leftControl">
+                <ul class="drillDownMenu">
+                    <li><a href="#">國小</a>
+                        <ul>
+                            <li><a href="#a">Page 1</a></li>
+                            <li><a href="#a">Page 2</a></li>
+                            <li><a href="#a">Page 3</a></li>
+                            <li><a href="#a">Page 4</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">國中</a>
+                        <ul>
+                            <li><a href="#">數學</a>
+                                <ul>
+                                    <li><a href="#">第一冊</a>
+                                        <ul>
+                                            <li><a href="#">一。整數的運算</a>
+                                                <ul>
+                                                    <li><a href="#a"><img name="JH_math1_1_1" />1.1負數與數線</a></li>
+                                                    <li><a href="#a"><img name="JH_math1_1_2" />1.2整數的加減</a></li>
+                                                    <li><a href="#a"><img name="JH_math1_1_3" />1.3整數的乘除與四則運算</a></li>
+                                                    <li><a href="#a"><img name="JH_math1_1_4" />1.4負數與數線</a></li>
+                                                    <li><a href="#a"><img name="JH_math1_1_5" />1.5負數與數線</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">二。分數的運算</a>
+                                                <ul>
+                                                    <li><a href="#a"><img name="JH_math1_2_1" />2.1因數與倍數</a></li>
+                                                    <li><a href="#a"><img name="JH_math1_2_2" />2.2最大公因數與最小公倍數</a></li>
+                                                    <li><a href="#a"><img name="JH_math1_2_3" />2.3分數的加減</a></li>
+                                                    <li><a href="#a"><img name="JH_math1_2_4" />2.4分數的乘除與四則運算</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">三。一元一次方程式</a>
+                                                <ul>
+                                                    <li><a href="#a"><img name="JH_math1_3_1" />3.1代數式的化簡</a></li>
+                                                    <li><a href="#a"><img name="JH_math1_3_2" />3.2一元一次方程式</a></li>
+                                                    <li><a href="#a"><img name="JH_math1_3_2" />3.3應用問題</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">第二冊</a>
+                                        <ul>
+                                            <li><a href="#">一。二元一次聯立方程式</a>
+                                                <ul>
+                                                    <li><a href="#a"><img name="JH_math2_1_1" />1.1二元一次方程式</a></li>
+                                                    <li><a href="#a"><img name="JH_math2_1_2" />1.2解二元一次聯立方程式</a></li>
+                                                    <li><a href="#a"><img name="JH_math2_1_3" />1.3應用問題</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">二。直角坐標與二元一次方程式的圖形</a>
+                                                <ul>
+                                                    <li><a href="#a"><img name="JH_math2_2_1" />2.1直角坐標平面</a></li>
+                                                    <li><a href="#a"><img name="JH_math2_2_2" />2.2二元一次方程式的圖形</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">三。比與比例式</a>
+                                                <ul>
+                                                    <li><a href="#a"><img name="JH_math2_3_1" />3.1比例式</a></li>
+                                                    <li><a href="#a"><img name="JH_math2_3_2" />3.2連比例</a></li>
+                                                    <li><a href="#a"><img name="JH_math2_3_3" />3.3正比與反比</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">四。線型函數及其圖形</a>
+                                                <ul>
+                                                    <li><a href="#a"><img name="JH_math2_4_1" />4.1認識函數</a></li>
+                                                    <li><a href="#a"><img name="JH_math2_4_2" />4.2線型函數的圖形</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">五。一元一次不等式</a>
+                                                <ul>
+                                                    <li><a href="#a"><img name="JH_math2_5_1" />5.1認識一元一次不等式</a></li>
+                                                    <li><a href="#a"><img name="JH_math2_5_2" />5.2解一元一次不等式</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">第三冊</a>
+                                        <ul>
+                                            <li><a href="#">一。乘法公式與多項式</a>
+                                                <ul>
+                                                    <li><a href="#a"><img name="JH_math3_1_1" />1.1乘法公式</a></li>
+                                                    <li><a href="#a"><img name="JH_math3_1_2" />1.2多項式與其加減運算</a></li>
+                                                    <li><a href="#a"><img name="JH_math3_1_3" />1.3多項式的乘除運算</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">二。平方根與畢氏定理</a>
+                                                <ul>
+                                                    <li><a href="#a"><img name="JH_math3_2_1" />2.1平方根與近似值</a></li>
+                                                    <li><a href="#a"><img name="JH_math3_2_2" />2.2根式的運算</a></li>
+                                                    <li><a href="#a"><img name="JH_math3_2_3" />2.3畢氏定理</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">三。因式分解</a>
+                                                <ul>
+                                                    <li><a href="#a"><img name="JH_math3_3_1" />3.1利用提公因式做因式分解</a></li>
+                                                    <li><a href="#a"><img name="JH_math3_3_2" />3.2利用乘法公式做因式分解</a></li>
+                                                    <li><a href="#a"><img name="JH_math3_3_3" />3.3利用十字交乘法做因式分解</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">四。一元二次方程式</a>
+                                                <ul>
+                                                    <li><a href="#a"><img name="JH_math3_4_1" />4.1因式分解解一元二次方程式</a></li>
+                                                    <li><a href="#a"><img name="JH_math3_4_2" />4.2配方法與公式解</a></li>
+                                                    <li><a href="#a"><img name="JH_math3_4_3" />4.3應用問題</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">第四冊</a>
+                                        <ul>
+                                            <li><a href="#">一。等差數列與等差級數</a>
+                                                <ul>
+                                                    <li><a href="#a"><img name="JH_math4_1_1" />1.1等差數列</a></li>
+                                                    <li><a href="#a"><img name="JH_math4_1_2" />1.2等差級數</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">二。幾何圖形與尺規作圖</a>
+                                                <ul>
+                                                    <li><a href="#a"><img name="JH_math4_2_1" />2.1生活中的平面圖形</a></li>
+                                                    <li><a href="#a"><img name="JH_math4_2_2" />2.2垂直、平分與線對稱圖形</a></li>
+                                                    <li><a href="#a"><img name="JH_math4_2_3" />2.3尺規作圖</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">三。三角形的基本性質</a>
+                                                <ul>
+                                                    <li><a href="#a"><img name="JH_math4_3_1" />3.1三角形的內角與外角</a></li>
+                                                    <li><a href="#a"><img name="JH_math4_3_2" />3.2三角形的全等性質</a></li>
+                                                    <li><a href="#a"><img name="JH_math4_3_3" />3.3角平分線與垂直平分線的性質</a></li>
+                                                    <li><a href="#a"><img name="JH_math4_3_4" />3.4三角形的邊角關係</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">四。平行</a>
+                                                <ul>
+                                                    <li><a href="#a"><img name="JH_math4_4_1" />4.1平行</a></li>
+                                                    <li><a href="#a"><img name="JH_math4_4_2" />4.2平行四邊形</a></li>
+                                                    <li><a href="#a"><img name="JH_math4_4_3" />4.3特殊四邊形的性質</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">第五冊</a>
+                                        <ul>
+                                            <li><a href="#">一。相似形</a>
+                                                <ul>
+                                                    <li><a href="#a"><img name="JH_math5_1_1" />1.1比例線段與縮放圖形</a></li>
+                                                    <li><a href="#a"><img name="JH_math5_1_2" />1.2相似與相似三角形</a></li>
+                                                    <li><a href="#a"><img name="JH_math5_1_2" />1.3相似三角形的應用</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">二。圓</a>
+                                                <ul>
+                                                    <li><a href="#a"><img name="JH_math5_2_1" />2.1點、直線、圓之間的位置關係</a></li>
+                                                    <li><a href="#a"><img name="JH_math5_2_2" />2.2圓心角、圓周角與弦切角</a></li>
+                                                    <li><a href="#a"><img name="JH_math5_2_3" />2.3多邊形的外心與內心</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">三。幾何與證明</a>
+                                                <ul>
+                                                    <li><a href="#a"><img name="JH_math5_3_1" />3.1證明與推理</a></li>
+                                                    <li><a href="#a"><img name="JH_math5_3_2" />3.2三角形的外心、內心與重心</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">第六冊</a>
+                                        <ul>
+                                            <li><a href="#">一。二次函數</a>
+                                                <ul>
+                                                    <li><a href="#a"><img name="JH_math6_1_1" />1.1二次函數的圖形</a></li>
+                                                    <li><a href="#a"><img name="JH_math6_1_2" />1.2二次函數的最大值、最小值</a></li>
+                                                    <li><a href="#a"><img name="JH_math6_1_2" />1.3應用問題</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">二。生活中的立體圖形</a>
+                                                <ul>
+                                                    <li><a href="#a"><img name="JH_math6_2_1" />2.1空間中的垂直與柱體</a></li>
+                                                    <li><a href="#a"><img name="JH_math6_2_2" />2.錐體與球</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">三。統計與機率</a>
+                                                <ul>
+                                                    <li><a href="#a"><img name="JH_math6_3_1" />3.1資料整理與統計圖表</a></li>
+                                                    <li><a href="#a"><img name="JH_math6_3_2" />3.2資料的分析</a></li>
+                                                    <li><a href="#a"><img name="JH_math6_3_3" />3.3機率</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="#">理化</a>
+                                <ul>
+                                    <li><a href="#">第一冊</a>
+                                        <ul>
+                                            <li><a href="#a">二元一次方程式</a></li>
+                                            <li><a href="#a">圖論</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="#">高中</a>
+                        <ul>
+                            <li><a href="#a">Page 1</a></li>
+                            <li><a href="#a">Page 2</a></li>
+                            <li><a href="#a">Page 3</a></li>
+                            <li><a href="#a">Page 4</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
 			<div class="content">
 				<div id="result" style='display:none;'>
 					<ol id="search-result">
@@ -349,132 +471,7 @@
 								<p class="description">影片提供者:kaun</br>觀看次數:35948895120</br>介紹:非常好看的影片<p>
 							</div>
 						</li>
-						<div id="pageChanger" role="navigation" style="margin-top: 10px;">  
-								<a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="1">
-						        	<span class="page-button-content">« 前一頁</span></a>
-								<a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="1" aria-label="前往第 1 頁">
-						        	<span class="page-button-content">1</span></a>
-						        <a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="2" aria-label="前往第 2 頁">
-						        	<span class="page-button-content">2</span></a>
-						        <a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="3" aria-label="前往第 3 頁">
-						        	<span class="page-button-content">3</span></a>
-						        <a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="4" aria-label="前往第 4 頁">
-						        	<span class="page-button-content">4</span></a>
-						        <a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="5" aria-label="前往第 5 頁">
-						        	<span class="page-button-content">5</span></a>
-						        <a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="6" aria-label="前往第 6 頁">
-						        	<span class="page-button-content">6</span></a>
-						        <a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="7" aria-label="前往第 7 頁">
-						        	<span class="page-button-content">7</span></a>
-								<a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="3">
-						        	<span class="page-button-content">下一頁 »</span></a>
-						  </div>
-					 </ol>
-    				</div>    				
-				</div>
-			</div>
-			<div class="content">
-				<div id="result" style='display:none;'>
-					<ol id="search-result">
-						<li class="v-frame">
-							<div class="v-img-frame">
-								<span>
-									<span class="v-duration">
-										3:14
-									</span>
-									<a href=""><img   class="v-img" src="http://i4.ytimg.com/vi/g0XpNvLWimo/mqdefault.jpg" /></a>
-								</span>
-							</div>
-							<div class="v-content">
-								<a class="title" href="">kara Pandora</a>
-								<p class="description">影片提供者:kaun</br>觀看次數:35948895120</br>介紹:非常好看的影片<p>
-							</div>
-						</li>
-						<li class="v-frame">
-							<div class="v-img-frame">
-								<span>
-									<span class="v-duration">
-										3:14
-									</span>
-									<a href=""><img   class="v-img" src="http://i4.ytimg.com/vi/s2EQm6WPMHs/mqdefault.jpg" /></a>
-								</span>
-							</div>
-							<div class="v-content">
-								<a class="title" href="">kara Pandora</a>
-								<p class="description">影片提供者:kaun</br>觀看次數:35948895120</br>介紹:非常好看的影片<p>
-							</div>
-						</li>
-						<li class="v-frame">
-							<div class="v-img-frame">
-								<span>
-									<span class="v-duration">
-										3:14
-									</span>
-									<a href=""><img   class="v-img" src="http://i3.ytimg.com/vi/zYoYoBtLqOY/mqdefault.jpg" /></a>
-								</span>
-							</div>
-							<div class="v-content">
-								<a class="title" href="">kara Pandora</a>
-								<p class="description">影片提供者:kaun</br>觀看次數:35948895120</br>介紹:非常好看的影片<p>
-							</div>
-						</li>
-						<li class="v-frame">
-							<div class="v-img-frame">
-								<span>
-									<span class="v-duration">
-										3:14
-									</span>
-									<a href=""><img   class="v-img" src="http://i4.ytimg.com/vi/CohHJA2IljA/mqdefault.jpg" /></a>
-								</span>
-							</div>
-							<div class="v-content">
-								<a class="title" href="">kara Pandora</a>
-								<p class="description">影片提供者:kaun</br>觀看次數:35948895120</br>介紹:非常好看的影片<p>
-							</div>
-						</li>
-						<li class="v-frame">
-							<div class="v-img-frame">
-								<span>
-									<span class="v-duration">
-										3:14
-									</span>
-									<a href=""><img   class="v-img" src="http://i3.ytimg.com/vi/R_7BphFdj2M/mqdefault.jpg" /></a>
-								</span>
-							</div>
-							<div class="v-content">
-								<a class="title" href="">kara Pandora</a>
-								<p class="description">影片提供者:kaun</br>觀看次數:35948895120</br>介紹:非常好看的影片<p>
-							</div>
-						</li>
-						<li class="v-frame">
-							<div class="v-img-frame">
-								<span>
-									<span class="v-duration">
-										3:14
-									</span>
-									<a href=""><img   class="v-img" src="http://i4.ytimg.com/vi/sJymF4JMJYA/mqdefault.jpg" /></a>
-								</span>
-							</div>
-							<div class="v-content">
-								<a class="title" href="">kara Pandora</a>
-								<p class="description">影片提供者:kaun</br>觀看次數:35948895120</br>介紹:非常好看的影片<p>
-							</div>
-						</li>
-						<li class="v-frame">
-							<div class="v-img-frame">
-								<span>
-									<span class="v-duration">
-										3:14
-									</span>
-									<a href=""><img   class="v-img" src="http://i3.ytimg.com/vi/rFL7aox1VmQ/mqdefault.jpg" /></a>
-								</span>
-							</div>
-							<div class="v-content">
-								<a class="title" href="">kara Pandora</a>
-								<p class="description">影片提供者:kaun</br>觀看次數:35948895120</br>介紹:非常好看的影片<p>
-							</div>
-						</li>
-						<div id="pageChanger" role="navigation" style="margin-top: 10px;">  
+						<div id="pageChanger" role="navigation" style="margin-top: 10px;">
 								<a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="1">
 						        	<span class="page-button-content">« 前一頁</span></a>
 								<a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="1" aria-label="前往第 1 頁">
@@ -498,29 +495,153 @@
     				</div>
 				</div>
 			</div>
+			<div class="content">
+				<div id="result" style='display:none;'>
+					<ol id="search-result">
+						<li class="v-frame">
+							<div class="v-img-frame">
+								<span>
+									<span class="v-duration">
+										3:14
+									</span>
+									<a href=""><img   class="v-img" src="http://i4.ytimg.com/vi/g0XpNvLWimo/mqdefault.jpg" /></a>
+								</span>
+							</div>
+							<div class="v-content">
+								<a class="title" href="">kara Pandora</a>
+								<p class="description">影片提供者:kaun</br>觀看次數:35948895120</br>介紹:非常好看的影片<p>
+							</div>
+						</li>
+						<li class="v-frame">
+							<div class="v-img-frame">
+								<span>
+									<span class="v-duration">
+										3:14
+									</span>
+									<a href=""><img   class="v-img" src="http://i4.ytimg.com/vi/s2EQm6WPMHs/mqdefault.jpg" /></a>
+								</span>
+							</div>
+							<div class="v-content">
+								<a class="title" href="">kara Pandora</a>
+								<p class="description">影片提供者:kaun</br>觀看次數:35948895120</br>介紹:非常好看的影片<p>
+							</div>
+						</li>
+						<li class="v-frame">
+							<div class="v-img-frame">
+								<span>
+									<span class="v-duration">
+										3:14
+									</span>
+									<a href=""><img   class="v-img" src="http://i3.ytimg.com/vi/zYoYoBtLqOY/mqdefault.jpg" /></a>
+								</span>
+							</div>
+							<div class="v-content">
+								<a class="title" href="">kara Pandora</a>
+								<p class="description">影片提供者:kaun</br>觀看次數:35948895120</br>介紹:非常好看的影片<p>
+							</div>
+						</li>
+						<li class="v-frame">
+							<div class="v-img-frame">
+								<span>
+									<span class="v-duration">
+										3:14
+									</span>
+									<a href=""><img   class="v-img" src="http://i4.ytimg.com/vi/CohHJA2IljA/mqdefault.jpg" /></a>
+								</span>
+							</div>
+							<div class="v-content">
+								<a class="title" href="">kara Pandora</a>
+								<p class="description">影片提供者:kaun</br>觀看次數:35948895120</br>介紹:非常好看的影片<p>
+							</div>
+						</li>
+						<li class="v-frame">
+							<div class="v-img-frame">
+								<span>
+									<span class="v-duration">
+										3:14
+									</span>
+									<a href=""><img   class="v-img" src="http://i3.ytimg.com/vi/R_7BphFdj2M/mqdefault.jpg" /></a>
+								</span>
+							</div>
+							<div class="v-content">
+								<a class="title" href="">kara Pandora</a>
+								<p class="description">影片提供者:kaun</br>觀看次數:35948895120</br>介紹:非常好看的影片<p>
+							</div>
+						</li>
+						<li class="v-frame">
+							<div class="v-img-frame">
+								<span>
+									<span class="v-duration">
+										3:14
+									</span>
+									<a href=""><img   class="v-img" src="http://i4.ytimg.com/vi/sJymF4JMJYA/mqdefault.jpg" /></a>
+								</span>
+							</div>
+							<div class="v-content">
+								<a class="title" href="">kara Pandora</a>
+								<p class="description">影片提供者:kaun</br>觀看次數:35948895120</br>介紹:非常好看的影片<p>
+							</div>
+						</li>
+						<li class="v-frame">
+							<div class="v-img-frame">
+								<span>
+									<span class="v-duration">
+										3:14
+									</span>
+									<a href=""><img   class="v-img" src="http://i3.ytimg.com/vi/rFL7aox1VmQ/mqdefault.jpg" /></a>
+								</span>
+							</div>
+							<div class="v-content">
+								<a class="title" href="">kara Pandora</a>
+								<p class="description">影片提供者:kaun</br>觀看次數:35948895120</br>介紹:非常好看的影片<p>
+							</div>
+						</li>
+						<div id="pageChanger" role="navigation" style="margin-top: 10px;">
+								<a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="1">
+						        	<span class="page-button-content">« 前一頁</span></a>
+								<a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="1" aria-label="前往第 1 頁">
+						        	<span class="page-button-content">1</span></a>
+						        <a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="2" aria-label="前往第 2 頁">
+						        	<span class="page-button-content">2</span></a>
+						        <a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="3" aria-label="前往第 3 頁">
+						        	<span class="page-button-content">3</span></a>
+						        <a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="4" aria-label="前往第 4 頁">
+						        	<span class="page-button-content">4</span></a>
+						        <a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="5" aria-label="前往第 5 頁">
+						        	<span class="page-button-content">5</span></a>
+						        <a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="6" aria-label="前往第 6 頁">
+						        	<span class="page-button-content">6</span></a>
+						        <a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="7" aria-label="前往第 7 頁">
+						        	<span class="page-button-content">7</span></a>
+								<a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="3">
+						        	<span class="page-button-content">下一頁 »</span></a>
+						  </div>
+					 </ol>
+    				</div>
+				</div>
 			<style>
-				#noteBtn{					
+				#noteBtn{
+                    position: relative;
 					width: 50px;
 					height: 50px;
-					margin-bottom: 386px;
-				}
+   				}
 				#noteBtn:hover{
 					width: 64px;
 					height: 64px;
 				}
 			</style>
 			<div class="content">
-				<div class="videoPlayerFrame">					
+				<div class="videoPlayerFrame">
 					<div class="vSrcContainer" width="800" >
-						<div id="player" width="800" height="450"></div>					    
+						<div id="player" width="800" height="450"></div>
 						<img class="add-sticky" id="noteBtn" src="image/note_icon.png"></img><br>
 						<progress value="0" max="100" id="videoProgress"></progress>
-						<script src="javascript/playerScript.js" type="text/javascript"></script>						
+						<script src="javascript/playerScript.js" type="text/javascript"></script>
 					</div>
 				</div>
 				<script>
 					STICKIES.open(); // Button must declare before this line, or it would be a bug
-				</script>				
+				</script>
 				<div class="videoControlPanel">
 					<div class="video-panel">
 						<div id="video-headline" class="clearfix">
@@ -562,7 +683,7 @@
 								<span class="likes-dislikes-content">
 									<img class="icon-watch-stats-like" src="./image/main/ok-like-button.png" alt="喜歡">
 									<span class="likes-count">118</span>
-										&nbsp;&nbsp;&nbsp;   
+										&nbsp;&nbsp;&nbsp;
 									<img class="icon-watch-stats-dislike" src="./image/main/ok-dislike-button.png" alt="不喜歡">
 									<span class="dislikes-count">4</span>
 								</span>
@@ -589,21 +710,752 @@
 					<div id="disqus_thread">123</div>
 					<script type="text/javascript">
 					    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-					    var disqus_shortname = 'testforalistar'; 
+					    var disqus_shortname = 'testforalistar';
 					    /* * * DON'T EDIT BELOW THIS LINE * * */
 					    (function() {
-					        var dsq = document.createElement('script'); 
-							dsq.type = 'text/javascript'; 
+					        var dsq = document.createElement('script');
+							dsq.type = 'text/javascript';
 							dsq.async = true;
 					        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
 					        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 					    })();
-					    
+
 					</script>
-					<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>		
+					<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 				</div>
 			</div>
-		</div>
-		
+
+
 	</body>
 </html>
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+    <!--<title>main</title>-->
+    <!--<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />-->
+    <!--<link href="css/main/videoList.css" rel="stylesheet" type="text/css" />-->
+    <!--<link href="css/main/state.css" rel="stylesheet" type="text/css" />-->
+    <!--<script src="javascript/common.js" type="text/javascript"></script>-->
+    <!--<script src="javascript/jquery-1.9.1.min.js" type="text/javascript"></script>-->
+    <!--<link rel="stylesheet" href="./css/main/stickies.css" />-->
+    <!--<script src="./javascript/jquery-ui.min.js"></script>-->
+    <!--<script src="./javascript/json2.js"></script>-->
+    <!--<script src="./javascript/stickies.js"></script>-->
+    <!--<link href="css/main/skins/demo.css" rel="stylesheet" type="text/css" />-->
+    <!--<script type="text/javascript" src="javascript/jquery.cookie.js"></script>-->
+    <!--<script src="./javascript/linkes_drilldown.js" type="text/javascript"></script>-->
+    <!--<link href="./css/main/linkes_drilldown.css" rel="stylesheet" type="text/css">-->
+    <!--<style>-->
+        <!--body{-->
+            <!--margin: 0px;-->
+        <!--}-->
+        <!--.bodyContainer{-->
+            <!--padding-top:0px;-->
+        <!--}-->
+        <!--.topBarContainer{-->
+            <!--padding-top: 8px;-->
+            <!--padding-bottom: 8px;-->
+            <!--background-color: #4cbbd3;-->
+            <!--height:34px;-->
+        <!--}-->
+        <!--.topBar{-->
+            <!--margin:0 auto;-->
+            <!--height:34px;-->
+            <!--width:1000px-->
+        <!--}-->
+        <!--.logoPic{-->
+            <!--float: left;-->
+            <!--width: 120px;-->
+            <!--height:40px;-->
+            <!--margin-right: 30px;-->
+        <!--}-->
+        <!--.search{-->
+
+        <!--}-->
+        <!--#searcbar{-->
+            <!--width: 300px;-->
+            <!--font-size: 20px;-->
+            <!--border-right: 1px solid white;-->
+            <!--border-top: 1px solid black;-->
+            <!--border-bottom: 1px solid black;-->
+            <!--border-left: 1px solid black;-->
+
+        <!--}-->
+        <!--#searchbtn{-->
+            <!--width: 25px;-->
+            <!--height: 25px;-->
+            <!--margin-top: 1px;-->
+            <!--background-color: white;-->
+            <!--border-right: 1px solid black;-->
+            <!--border-top: 1px solid black;-->
+            <!--border-bottom: 1px solid black;-->
+            <!--border-left: 1px solid black;-->
+        <!--}-->
+        <!--.logoPic:hover{-->
+            <!--background-color: #0099FF;-->
+        <!--}-->
+        <!--#searchbtn:hover{-->
+            <!--background-color: #FFFFCC;-->
+        <!--}-->
+        <!--.leftControl{-->
+            <!--height: 917px;-->
+            <!--width: 250px;-->
+            <!--float: left;-->
+            <!--border-right: 1px solid #999;-->
+        <!--}-->
+        <!--.videoPlayerFrame{-->
+            <!--margin-left: 300px;-->
+        <!--}-->
+        <!--.vSrcContainer{-->
+            <!--padding-left: 30px;-->
+            <!--padding-top: 60px;-->
+        <!--}-->
+        <!--.videoControlPanel{-->
+            <!--margin-left: 300px;-->
+            <!--margin-left: 300px;-->
+        <!--}-->
+        <!--.videoControlElements{-->
+            <!--padding-left: 30px;-->
+        <!--}-->
+        <!--.videoCmt{-->
+            <!--margin-left: 300px;-->
+        <!--}-->
+        <!--#disqus_thread {-->
+            <!--padding-left: 30px;-->
+            <!--background-attachment: scroll;-->
+            <!--background-repeat: repeat;-->
+            <!--height: auto;-->
+            <!--width: 800px;-->
+
+        <!--}-->
+
+    <!--</style>-->
+    <!--<script language="JavaScript">-->
+        <!--$(document).ready(function() {-->
+            <!--$(".topnav").accordion({-->
+                <!--accordion:false,-->
+                <!--speed: 500,-->
+                <!--closedSign: '[+]',-->
+                <!--openedSign: '[-]'-->
+            <!--});-->
+        <!--});-->
+        <!--function show(id)-->
+        <!--{-->
+            <!--var o=document.getElementById(id);-->
+            <!--if( o.style.display == 'none' )-->
+            <!--{-->
+                <!--o.style.display='block';-->
+
+            <!--}-->
+            <!--else-->
+            <!--{-->
+                <!--o.style.display='none';-->
+            <!--}-->
+        <!--}-->
+        <!--$(function(){-->
+            <!--$('.drillDownMenu').linkesDrillDown();-->
+
+            <!--/*this is just to present something when clicking a dummy link*/-->
+            <!--$('a[href="#a"]').attr('href','javascript:void(0);'); //按下東西可以綁事件-->
+        <!--});-->
+
+    <!--</script>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="bodyContainer">-->
+<!--<div class="topBarContainer">-->
+    <!--<div class="topBar">-->
+        <!--<div class="logoPic">-->
+            <!--<a href=""><img src="./image/login/logo.png" width="120px" height="40px"/></a>-->
+        <!--</div>-->
+
+        <!--<div class="search">-->
+
+            <!--<table cellspacing="0px" cellpadding="0px">-->
+                <!--<tr>-->
+                    <!--<td>-->
+                        <!--<input type="text" id="searcbar"/>-->
+                    <!--</td>-->
+                    <!--<td>-->
+                        <!--<input type="image" img src="./image/search.png" id="searchbtn" onclick="show('result')"/>-->
+                    <!--</td>-->
+                <!--</tr>-->
+            <!--</table>-->
+
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<!--<div class="leftControl">-->
+    <!--<ul class="drillDownMenu">-->
+    <!--<li><a href="#">國小</a>-->
+        <!--<ul>-->
+            <!--<li><a href="#a">Page 1</a></li>-->
+            <!--<li><a href="#a">Page 2</a></li>-->
+            <!--<li><a href="#a">Page 3</a></li>-->
+            <!--<li><a href="#a">Page 4</a></li>-->
+        <!--</ul>-->
+    <!--</li>-->
+    <!--<li><a href="#">國中</a>-->
+        <!--<ul>-->
+            <!--<li><a href="#">數學</a>-->
+                <!--<ul>-->
+                    <!--<li><a href="#">第一冊</a>-->
+                        <!--<ul>-->
+                            <!--<li><a href="#">一。整數的運算</a>-->
+                                <!--<ul>-->
+                                    <!--<li><a href="#a"><img name="JH_math1_1_1"/>1.1負數與數線</a></li>-->
+                                    <!--<li><a href="#a"><img name="JH_math1_1_2"/>1.2整數的加減</a></li>-->
+                                    <!--<li><a href="#a"><img name="JH_math1_1_3"/>1.3整數的乘除與四則運算</a></li>-->
+                                    <!--<li><a href="#a"><img name="JH_math1_1_4"/>1.4負數與數線</a></li>-->
+                                    <!--<li><a href="#a"><img name="JH_math1_1_5"/>1.5負數與數線</a></li>-->
+                                <!--</ul>-->
+                            <!--</li>-->
+                            <!--<li><a href="#">二。分數的運算</a>-->
+                                <!--<ul>-->
+                                    <!--<li><a href="#a"><img name="JH_math1_2_1"/>2.1因數與倍數</a></li>-->
+                                    <!--<li><a href="#a"><img name="JH_math1_2_2"/>2.2最大公因數與最小公倍數</a></li>-->
+                                    <!--<li><a href="#a"><img name="JH_math1_2_3"/>2.3分數的加減</a></li>-->
+                                    <!--<li><a href="#a"><img name="JH_math1_2_4"/>2.4分數的乘除與四則運算</a></li>-->
+                                <!--</ul>-->
+                            <!--</li>-->
+                            <!--<li><a href="#">三。一元一次方程式</a>-->
+                                <!--<ul>-->
+                                    <!--<li><a href="#a"><img name="JH_math1_3_1"/>3.1代數式的化簡</a></li>-->
+                                    <!--<li><a href="#a"><img name="JH_math1_3_2"/>3.2一元一次方程式</a></li>-->
+                                    <!--<li><a href="#a"><img name="JH_math1_3_2"/>3.3應用問題</a></li>-->
+                                <!--</ul>-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                    <!--</li>-->
+                    <!--<li><a href="#">第二冊</a>-->
+                        <!--<ul>-->
+                            <!--<li><a href="#">一。二元一次聯立方程式</a>-->
+                                <!--<ul>-->
+                                    <!--<li><a href="#a"><img name="JH_math2_1_1"/>1.1二元一次方程式</a></li>-->
+                                    <!--<li><a href="#a"><img name="JH_math2_1_2"/>1.2解二元一次聯立方程式</a></li>-->
+                                    <!--<li><a href="#a"><img name="JH_math2_1_3"/>1.3應用問題</a></li>-->
+                                <!--</ul>-->
+                            <!--</li>-->
+                            <!--<li><a href="#">二。直角坐標與二元一次方程式的圖形</a>-->
+                                <!--<ul>-->
+                                    <!--<li><a href="#a"><img name="JH_math2_2_1"/>2.1直角坐標平面</a></li>-->
+                                    <!--<li><a href="#a"><img name="JH_math2_2_2"/>2.2二元一次方程式的圖形</a></li>-->
+                                <!--</ul>-->
+                            <!--</li>-->
+                            <!--<li><a href="#">三。比與比例式</a>-->
+                                <!--<ul>-->
+                                    <!--<li><a href="#a"><img name="JH_math2_3_1"/>3.1比例式</a></li>-->
+                                    <!--<li><a href="#a"><img name="JH_math2_3_2"/>3.2連比例</a></li>-->
+                                    <!--<li><a href="#a"><img name="JH_math2_3_3"/>3.3正比與反比</a></li>-->
+                                <!--</ul>-->
+                            <!--</li>-->
+                            <!--<li><a href="#">四。線型函數及其圖形</a>-->
+                                <!--<ul>-->
+                                    <!--<li><a href="#a"><img name="JH_math2_4_1"/>4.1認識函數</a></li>-->
+                                    <!--<li><a href="#a"><img name="JH_math2_4_2"/>4.2線型函數的圖形</a></li>-->
+                                <!--</ul>-->
+                            <!--</li>-->
+                            <!--<li><a href="#">五。一元一次不等式</a>-->
+                                <!--<ul>-->
+                                    <!--<li><a href="#a"><img name="JH_math2_5_1"/>5.1認識一元一次不等式</a></li>-->
+                                    <!--<li><a href="#a"><img name="JH_math2_5_2"/>5.2解一元一次不等式</a></li>-->
+                                <!--</ul>-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                    <!--</li>-->
+                    <!--<li><a href="#">第三冊</a>-->
+                        <!--<ul>-->
+                            <!--<li><a href="#">一。乘法公式與多項式</a>-->
+                                <!--<ul>-->
+                                    <!--<li><a href="#a"><img name="JH_math3_1_1"/>1.1乘法公式</a></li>-->
+                                    <!--<li><a href="#a"><img name="JH_math3_1_2"/>1.2多項式與其加減運算</a></li>-->
+                                    <!--<li><a href="#a"><img name="JH_math3_1_3"/>1.3多項式的乘除運算</a></li>-->
+                                <!--</ul>-->
+                            <!--</li>-->
+                            <!--<li><a href="#">二。平方根與畢氏定理</a>-->
+                                <!--<ul>-->
+                                    <!--<li><a href="#a"><img name="JH_math3_2_1"/>2.1平方根與近似值</a></li>-->
+                                    <!--<li><a href="#a"><img name="JH_math3_2_2"/>2.2根式的運算</a></li>-->
+                                    <!--<li><a href="#a"><img name="JH_math3_2_3"/>2.3畢氏定理</a></li>-->
+                                <!--</ul>-->
+                            <!--</li>-->
+                            <!--<li><a href="#">三。因式分解</a>-->
+                                <!--<ul>-->
+                                    <!--<li><a href="#a"><img name="JH_math3_3_1"/>3.1利用提公因式做因式分解</a></li>-->
+                                    <!--<li><a href="#a"><img name="JH_math3_3_2"/>3.2利用乘法公式做因式分解</a></li>-->
+                                    <!--<li><a href="#a"><img name="JH_math3_3_3"/>3.3利用十字交乘法做因式分解</a></li>-->
+                                <!--</ul>-->
+                            <!--</li>-->
+                            <!--<li><a href="#">四。一元二次方程式</a>-->
+                                <!--<ul>-->
+                                    <!--<li><a href="#a"><img name="JH_math3_4_1"/>4.1因式分解解一元二次方程式</a></li>-->
+                                    <!--<li><a href="#a"><img name="JH_math3_4_2"/>4.2配方法與公式解</a></li>-->
+                                    <!--<li><a href="#a"><img name="JH_math3_4_3"/>4.3應用問題</a></li>-->
+                                <!--</ul>-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                    <!--</li>-->
+                    <!--<li><a href="#">第四冊</a>-->
+                        <!--<ul>-->
+                            <!--<li><a href="#">一。等差數列與等差級數</a>-->
+                                <!--<ul>-->
+                                    <!--<li><a href="#a"><img name="JH_math4_1_1"/>1.1等差數列</a></li>-->
+                                    <!--<li><a href="#a"><img name="JH_math4_1_2"/>1.2等差級數</a></li>-->
+                                <!--</ul>-->
+                            <!--</li>-->
+                            <!--<li><a href="#">二。幾何圖形與尺規作圖</a>-->
+                                <!--<ul>-->
+                                    <!--<li><a href="#a"><img name="JH_math4_2_1"/>2.1生活中的平面圖形</a></li>-->
+                                    <!--<li><a href="#a"><img name="JH_math4_2_2"/>2.2垂直、平分與線對稱圖形</a></li>-->
+                                    <!--<li><a href="#a"><img name="JH_math4_2_3"/>2.3尺規作圖</a></li>-->
+                                <!--</ul>-->
+                            <!--</li>-->
+                            <!--<li><a href="#">三。三角形的基本性質</a>-->
+                                <!--<ul>-->
+                                    <!--<li><a href="#a"><img name="JH_math4_3_1"/>3.1三角形的內角與外角</a></li>-->
+                                    <!--<li><a href="#a"><img name="JH_math4_3_2"/>3.2三角形的全等性質</a></li>-->
+                                    <!--<li><a href="#a"><img name="JH_math4_3_3"/>3.3角平分線與垂直平分線的性質</a></li>-->
+                                    <!--<li><a href="#a"><img name="JH_math4_3_4"/>3.4三角形的邊角關係</a></li>-->
+                                <!--</ul>-->
+                            <!--</li>-->
+                            <!--<li><a href="#">四。平行</a>-->
+                                <!--<ul>-->
+                                    <!--<li><a href="#a"><img name="JH_math4_4_1"/>4.1平行</a></li>-->
+                                    <!--<li><a href="#a"><img name="JH_math4_4_2"/>4.2平行四邊形</a></li>-->
+                                    <!--<li><a href="#a"><img name="JH_math4_4_3"/>4.3特殊四邊形的性質</a></li>-->
+                                <!--</ul>-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                    <!--</li>-->
+                    <!--<li><a href="#">第五冊</a>-->
+                        <!--<ul>-->
+                            <!--<li><a href="#">一。相似形</a>-->
+                                <!--<ul>-->
+                                    <!--<li><a href="#a"><img name="JH_math5_1_1"/>1.1比例線段與縮放圖形</a></li>-->
+                                    <!--<li><a href="#a"><img name="JH_math5_1_2"/>1.2相似與相似三角形</a></li>-->
+                                    <!--<li><a href="#a"><img name="JH_math5_1_2"/>1.3相似三角形的應用</a></li>-->
+                                <!--</ul>-->
+                            <!--</li>-->
+                            <!--<li><a href="#">二。圓</a>-->
+                                <!--<ul>-->
+                                    <!--<li><a href="#a"><img name="JH_math5_2_1"/>2.1點、直線、圓之間的位置關係</a></li>-->
+                                    <!--<li><a href="#a"><img name="JH_math5_2_2"/>2.2圓心角、圓周角與弦切角</a></li>-->
+                                    <!--<li><a href="#a"><img name="JH_math5_2_3"/>2.3多邊形的外心與內心</a></li>-->
+                                <!--</ul>-->
+                            <!--</li>-->
+                            <!--<li><a href="#">三。幾何與證明</a>-->
+                                <!--<ul>-->
+                                    <!--<li><a href="#a"><img name="JH_math5_3_1"/>3.1證明與推理</a></li>-->
+                                    <!--<li><a href="#a"><img name="JH_math5_3_2"/>3.2三角形的外心、內心與重心</a></li>-->
+                                <!--</ul>-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                    <!--</li>-->
+                    <!--<li><a href="#">第六冊</a>-->
+                        <!--<ul>-->
+                            <!--<li><a href="#">一。二次函數</a>-->
+                                <!--<ul>-->
+                                    <!--<li><a href="#a"><img name="JH_math6_1_1"/>1.1二次函數的圖形</a></li>-->
+                                    <!--<li><a href="#a"><img name="JH_math6_1_2"/>1.2二次函數的最大值、最小值</a></li>-->
+                                    <!--<li><a href="#a"><img name="JH_math6_1_2"/>1.3應用問題</a></li>-->
+                                <!--</ul>-->
+                            <!--</li>-->
+                            <!--<li><a href="#">二。生活中的立體圖形</a>-->
+                                <!--<ul>-->
+                                    <!--<li><a href="#a"><img name="JH_math6_2_1"/>2.1空間中的垂直與柱體</a></li>-->
+                                    <!--<li><a href="#a"><img name="JH_math6_2_2"/>2.錐體與球</a></li>-->
+                                <!--</ul>-->
+                            <!--</li>-->
+                            <!--<li><a href="#">三。統計與機率</a>-->
+                                <!--<ul>-->
+                                    <!--<li><a href="#a"><img name="JH_math6_3_1"/>3.1資料整理與統計圖表</a></li>-->
+                                    <!--<li><a href="#a"><img name="JH_math6_3_2"/>3.2資料的分析</a></li>-->
+                                    <!--<li><a href="#a"><img name="JH_math6_3_3"/>3.3機率</a></li>-->
+                                <!--</ul>-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                    <!--</li>-->
+                <!--</ul>-->
+            <!--</li>-->
+            <!--<li><a href="#">理化</a>-->
+                <!--<ul>-->
+                    <!--<li><a href="#">第一冊</a>-->
+                        <!--<ul>-->
+                            <!--<li><a href="#a">二元一次方程式</a></li>-->
+                            <!--<li><a href="#a">圖論</a></li>-->
+                        <!--</ul>-->
+                    <!--</li>-->
+                <!--</ul>-->
+            <!--</li>-->
+        <!--</ul>-->
+    <!--</li>-->
+    <!--<li><a href="#">高中</a>-->
+        <!--<ul>-->
+            <!--<li><a href="#a">Page 1</a></li>-->
+            <!--<li><a href="#a">Page 2</a></li>-->
+            <!--<li><a href="#a">Page 3</a></li>-->
+            <!--<li><a href="#a">Page 4</a></li>-->
+        <!--</ul>-->
+    <!--</li>-->
+    <!--</ul>-->
+<!--</div>-->
+
+<!--<div class="content">-->
+    <!--<div id="result" style='display:none;'>-->
+        <!--<ol id="search-result">-->
+            <!--<li class="v-frame">-->
+                <!--<div class="v-img-frame">-->
+								<!--<span>-->
+									<!--<span class="v-duration">-->
+										<!--3:14-->
+									<!--</span>-->
+									<!--<a href=""><img   class="v-img" src="http://i4.ytimg.com/vi/g0XpNvLWimo/mqdefault.jpg" /></a>-->
+								<!--</span>-->
+                <!--</div>-->
+                <!--<div class="v-content">-->
+                    <!--<a class="title" href="">kara Pandora</a>-->
+                    <!--<p class="description">影片提供者:kaun</br>觀看次數:35948895120</br>介紹:非常好看的影片<p>-->
+                <!--</div>-->
+            <!--</li>-->
+            <!--<li class="v-frame">-->
+                <!--<div class="v-img-frame">-->
+								<!--<span>-->
+									<!--<span class="v-duration">-->
+										<!--3:14-->
+									<!--</span>-->
+									<!--<a href=""><img   class="v-img" src="http://i4.ytimg.com/vi/s2EQm6WPMHs/mqdefault.jpg" /></a>-->
+								<!--</span>-->
+                <!--</div>-->
+                <!--<div class="v-content">-->
+                    <!--<a class="title" href="">kara Pandora</a>-->
+                    <!--<p class="description">影片提供者:kaun</br>觀看次數:35948895120</br>介紹:非常好看的影片<p>-->
+                <!--</div>-->
+            <!--</li>-->
+            <!--<li class="v-frame">-->
+                <!--<div class="v-img-frame">-->
+								<!--<span>-->
+									<!--<span class="v-duration">-->
+										<!--3:14-->
+									<!--</span>-->
+									<!--<a href=""><img   class="v-img" src="http://i3.ytimg.com/vi/zYoYoBtLqOY/mqdefault.jpg" /></a>-->
+								<!--</span>-->
+                <!--</div>-->
+                <!--<div class="v-content">-->
+                    <!--<a class="title" href="">kara Pandora</a>-->
+                    <!--<p class="description">影片提供者:kaun</br>觀看次數:35948895120</br>介紹:非常好看的影片<p>-->
+                <!--</div>-->
+            <!--</li>-->
+            <!--<li class="v-frame">-->
+                <!--<div class="v-img-frame">-->
+								<!--<span>-->
+									<!--<span class="v-duration">-->
+										<!--3:14-->
+									<!--</span>-->
+									<!--<a href=""><img   class="v-img" src="http://i4.ytimg.com/vi/CohHJA2IljA/mqdefault.jpg" /></a>-->
+								<!--</span>-->
+                <!--</div>-->
+                <!--<div class="v-content">-->
+                    <!--<a class="title" href="">kara Pandora</a>-->
+                    <!--<p class="description">影片提供者:kaun</br>觀看次數:35948895120</br>介紹:非常好看的影片<p>-->
+                <!--</div>-->
+            <!--</li>-->
+            <!--<li class="v-frame">-->
+                <!--<div class="v-img-frame">-->
+								<!--<span>-->
+									<!--<span class="v-duration">-->
+										<!--3:14-->
+									<!--</span>-->
+									<!--<a href=""><img   class="v-img" src="http://i3.ytimg.com/vi/R_7BphFdj2M/mqdefault.jpg" /></a>-->
+								<!--</span>-->
+                <!--</div>-->
+                <!--<div class="v-content">-->
+                    <!--<a class="title" href="">kara Pandora</a>-->
+                    <!--<p class="description">影片提供者:kaun</br>觀看次數:35948895120</br>介紹:非常好看的影片<p>-->
+                <!--</div>-->
+            <!--</li>-->
+            <!--<li class="v-frame">-->
+                <!--<div class="v-img-frame">-->
+								<!--<span>-->
+									<!--<span class="v-duration">-->
+										<!--3:14-->
+									<!--</span>-->
+									<!--<a href=""><img   class="v-img" src="http://i4.ytimg.com/vi/sJymF4JMJYA/mqdefault.jpg" /></a>-->
+								<!--</span>-->
+                <!--</div>-->
+                <!--<div class="v-content">-->
+                    <!--<a class="title" href="">kara Pandora</a>-->
+                    <!--<p class="description">影片提供者:kaun</br>觀看次數:35948895120</br>介紹:非常好看的影片<p>-->
+                <!--</div>-->
+            <!--</li>-->
+            <!--<li class="v-frame">-->
+                <!--<div class="v-img-frame">-->
+								<!--<span>-->
+									<!--<span class="v-duration">-->
+										<!--3:14-->
+									<!--</span>-->
+									<!--<a href=""><img   class="v-img" src="http://i3.ytimg.com/vi/rFL7aox1VmQ/mqdefault.jpg" /></a>-->
+								<!--</span>-->
+                <!--</div>-->
+                <!--<div class="v-content">-->
+                    <!--<a class="title" href="">kara Pandora</a>-->
+                    <!--<p class="description">影片提供者:kaun</br>觀看次數:35948895120</br>介紹:非常好看的影片<p>-->
+                <!--</div>-->
+            <!--</li>-->
+            <!--<div id="pageChanger" role="navigation" style="margin-top: 10px;">-->
+                <!--<a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="1">-->
+                    <!--<span class="page-button-content">« 前一頁</span></a>-->
+                <!--<a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="1" aria-label="前往第 1 頁">-->
+                    <!--<span class="page-button-content">1</span></a>-->
+                <!--<a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="2" aria-label="前往第 2 頁">-->
+                    <!--<span class="page-button-content">2</span></a>-->
+                <!--<a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="3" aria-label="前往第 3 頁">-->
+                    <!--<span class="page-button-content">3</span></a>-->
+                <!--<a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="4" aria-label="前往第 4 頁">-->
+                    <!--<span class="page-button-content">4</span></a>-->
+                <!--<a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="5" aria-label="前往第 5 頁">-->
+                    <!--<span class="page-button-content">5</span></a>-->
+                <!--<a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="6" aria-label="前往第 6 頁">-->
+                    <!--<span class="page-button-content">6</span></a>-->
+                <!--<a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="7" aria-label="前往第 7 頁">-->
+                    <!--<span class="page-button-content">7</span></a>-->
+                <!--<a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="3">-->
+                    <!--<span class="page-button-content">下一頁 »</span></a>-->
+            <!--</div>-->
+        <!--</ol>-->
+    <!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="content">-->
+    <!--<div id="result" style='display:none;'>-->
+        <!--<ol id="search-result">-->
+            <!--<li class="v-frame">-->
+                <!--<div class="v-img-frame">-->
+								<!--<span>-->
+									<!--<span class="v-duration">-->
+										<!--3:14-->
+									<!--</span>-->
+									<!--<a href=""><img   class="v-img" src="http://i4.ytimg.com/vi/g0XpNvLWimo/mqdefault.jpg" /></a>-->
+								<!--</span>-->
+                <!--</div>-->
+                <!--<div class="v-content">-->
+                    <!--<a class="title" href="">kara Pandora</a>-->
+                    <!--<p class="description">影片提供者:kaun</br>觀看次數:35948895120</br>介紹:非常好看的影片<p>-->
+                <!--</div>-->
+            <!--</li>-->
+            <!--<li class="v-frame">-->
+                <!--<div class="v-img-frame">-->
+								<!--<span>-->
+									<!--<span class="v-duration">-->
+										<!--3:14-->
+									<!--</span>-->
+									<!--<a href=""><img   class="v-img" src="http://i4.ytimg.com/vi/s2EQm6WPMHs/mqdefault.jpg" /></a>-->
+								<!--</span>-->
+                <!--</div>-->
+                <!--<div class="v-content">-->
+                    <!--<a class="title" href="">kara Pandora</a>-->
+                    <!--<p class="description">影片提供者:kaun</br>觀看次數:35948895120</br>介紹:非常好看的影片<p>-->
+                <!--</div>-->
+            <!--</li>-->
+            <!--<li class="v-frame">-->
+                <!--<div class="v-img-frame">-->
+								<!--<span>-->
+									<!--<span class="v-duration">-->
+										<!--3:14-->
+									<!--</span>-->
+									<!--<a href=""><img   class="v-img" src="http://i3.ytimg.com/vi/zYoYoBtLqOY/mqdefault.jpg" /></a>-->
+								<!--</span>-->
+                <!--</div>-->
+                <!--<div class="v-content">-->
+                    <!--<a class="title" href="">kara Pandora</a>-->
+                    <!--<p class="description">影片提供者:kaun</br>觀看次數:35948895120</br>介紹:非常好看的影片<p>-->
+                <!--</div>-->
+            <!--</li>-->
+            <!--<li class="v-frame">-->
+                <!--<div class="v-img-frame">-->
+								<!--<span>-->
+									<!--<span class="v-duration">-->
+										<!--3:14-->
+									<!--</span>-->
+									<!--<a href=""><img   class="v-img" src="http://i4.ytimg.com/vi/CohHJA2IljA/mqdefault.jpg" /></a>-->
+								<!--</span>-->
+                <!--</div>-->
+                <!--<div class="v-content">-->
+                    <!--<a class="title" href="">kara Pandora</a>-->
+                    <!--<p class="description">影片提供者:kaun</br>觀看次數:35948895120</br>介紹:非常好看的影片<p>-->
+                <!--</div>-->
+            <!--</li>-->
+            <!--<li class="v-frame">-->
+                <!--<div class="v-img-frame">-->
+								<!--<span>-->
+									<!--<span class="v-duration">-->
+										<!--3:14-->
+									<!--</span>-->
+									<!--<a href=""><img   class="v-img" src="http://i3.ytimg.com/vi/R_7BphFdj2M/mqdefault.jpg" /></a>-->
+								<!--</span>-->
+                <!--</div>-->
+                <!--<div class="v-content">-->
+                    <!--<a class="title" href="">kara Pandora</a>-->
+                    <!--<p class="description">影片提供者:kaun</br>觀看次數:35948895120</br>介紹:非常好看的影片<p>-->
+                <!--</div>-->
+            <!--</li>-->
+            <!--<li class="v-frame">-->
+                <!--<div class="v-img-frame">-->
+								<!--<span>-->
+									<!--<span class="v-duration">-->
+										<!--3:14-->
+									<!--</span>-->
+									<!--<a href=""><img   class="v-img" src="http://i4.ytimg.com/vi/sJymF4JMJYA/mqdefault.jpg" /></a>-->
+								<!--</span>-->
+                <!--</div>-->
+                <!--<div class="v-content">-->
+                    <!--<a class="title" href="">kara Pandora</a>-->
+                    <!--<p class="description">影片提供者:kaun</br>觀看次數:35948895120</br>介紹:非常好看的影片<p>-->
+                <!--</div>-->
+            <!--</li>-->
+            <!--<li class="v-frame">-->
+                <!--<div class="v-img-frame">-->
+								<!--<span>-->
+									<!--<span class="v-duration">-->
+										<!--3:14-->
+									<!--</span>-->
+									<!--<a href=""><img   class="v-img" src="http://i3.ytimg.com/vi/rFL7aox1VmQ/mqdefault.jpg" /></a>-->
+								<!--</span>-->
+                <!--</div>-->
+                <!--<div class="v-content">-->
+                    <!--<a class="title" href="">kara Pandora</a>-->
+                    <!--<p class="description">影片提供者:kaun</br>觀看次數:35948895120</br>介紹:非常好看的影片<p>-->
+                <!--</div>-->
+            <!--</li>-->
+            <!--<div id="pageChanger" role="navigation" style="margin-top: 10px;">-->
+                <!--<a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="1">-->
+                    <!--<span class="page-button-content">« 前一頁</span></a>-->
+                <!--<a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="1" aria-label="前往第 1 頁">-->
+                    <!--<span class="page-button-content">1</span></a>-->
+                <!--<a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="2" aria-label="前往第 2 頁">-->
+                    <!--<span class="page-button-content">2</span></a>-->
+                <!--<a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="3" aria-label="前往第 3 頁">-->
+                    <!--<span class="page-button-content">3</span></a>-->
+                <!--<a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="4" aria-label="前往第 4 頁">-->
+                    <!--<span class="page-button-content">4</span></a>-->
+                <!--<a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="5" aria-label="前往第 5 頁">-->
+                    <!--<span class="page-button-content">5</span></a>-->
+                <!--<a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="6" aria-label="前往第 6 頁">-->
+                    <!--<span class="page-button-content">6</span></a>-->
+                <!--<a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="7" aria-label="前往第 7 頁">-->
+                    <!--<span class="page-button-content">7</span></a>-->
+                <!--<a href="" class="ecl-page-button pageButtonControl page-button-effect" data-sessionlink="" data-page="3">-->
+                    <!--<span class="page-button-content">下一頁 »</span></a>-->
+            <!--</div>-->
+        <!--</ol>-->
+    <!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<style>-->
+    <!--#noteBtn{-->
+        <!--width: 50px;-->
+        <!--height: 50px;-->
+        <!--margin-bottom: 386px;-->
+    <!--}-->
+    <!--#noteBtn:hover{-->
+        <!--width: 64px;-->
+        <!--height: 64px;-->
+    <!--}-->
+<!--</style>-->
+<!--<div class="content">-->
+    <!--<div class="videoPlayerFrame">-->
+        <!--<div class="vSrcContainer" width="800" >-->
+            <!--<div id="player" width="800" height="450"></div>-->
+            <!--<img class="add-sticky" id="noteBtn" src="image/note_icon.png"></img><br>-->
+            <!--<progress value="0" max="100" id="videoProgress"/>-->
+            <!--<script src="javascript/playerScript.js" type="text/javascript"></script>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<script>-->
+        <!--STICKIES.open(); // Button must declare before this line, or it would be a bug-->
+    <!--</script>-->
+    <!--<div class="videoControlPanel">-->
+        <!--<div class="video-panel">-->
+            <!--<div id="video-headline" class="clearfix">-->
+                <!--<h1 id="video-headline-title">-->
+								<!--<span class="uix-expander-head" dir="ltr" title="高中數學 第 一 節 數與式">-->
+									<!--高中數學 第 一 節 數與式-->
+								<!--</span>-->
+                <!--</h1>-->
+            <!--</div>-->
+            <!--<div id="user-header">-->
+                <!--<a href="" class="user-photo">-->
+								<!--<span class="video-thumb">-->
+									<!--<img src="./image/main/user_picture.png" alt="bahagamecrazy" width="48">-->
+									<!--<span class="vertical-align"></span>-->
+								<!--</span>-->
+                <!--</a>-->
+                <!--<a href="" class="ex-user-name" data-sessionlink="" dir="ltr">uploadperson</a>-->
+                <!--<span class="user-separator">·</span>-->
+                <!--<a class="user-videos" href="" data-sessionlink="">1 部影片</a>-->
+                <!--<br>-->
+        					<!--<span id="subscription-container">-->
+								<!--<button class="subscription-button yt-uix-button" type="button"  data-style-type="branded" role="button">-->
+									<!--<span class="uix-button-icon-wrapper">-->
+										<!--<img class="uix-button-icon-subscribe" src="./image/main/book-v-icon-ok.png" alt="" title="">-->
+									<!--</span>-->
+									<!--<span class="uix-button-content">-->
+										<!--<span class="subscribe-label" aria-label="訂閱">訂閱</span>-->
+										<!--<span class="subscribed-label" aria-label="取消訂閱">已訂閱</span>-->
+										<!--<span class="unsubscribe-label" aria-label="取消訂閱">取消訂閱</span>-->
+									<!--</span>-->
+                                <!--</button>-->
+							<!--</span>-->
+                <!--<div id="videos-views-info">-->
+                    <!--<span class="watch-view-count">觀看次數	1,204</span>-->
+                    <!--<div class="video-extras-sparkbars">-->
+                        <!--<div class="video-extras-sparkbar-likes" style="width: 96.7213114754%"></div>-->
+                        <!--<div class="video-extras-sparkbar-dislikes" style="width: 3.27868852459%"></div>-->
+                    <!--</div>-->
+								<!--<span class="likes-dislikes-content">-->
+									<!--<img class="icon-watch-stats-like" src="./image/main/ok-like-button.png" alt="喜歡">-->
+									<!--<span class="likes-count">118</span>-->
+										<!--&nbsp;&nbsp;&nbsp;-->
+									<!--<img class="icon-watch-stats-dislike" src="./image/main/ok-dislike-button.png" alt="不喜歡">-->
+									<!--<span class="dislikes-count">4</span>-->
+								<!--</span>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div id="likes-dislikes-btn-actions" class="clearfix">-->
+							<!--<span id="watch-like-dislike-buttons" class="uix-button-group" data-button-toggle-group="optional">-->
+								<!--<button id="watch-like" onclick="" title="我喜歡" type="button" class=" yt-uix-button" role="button">-->
+									<!--<span class="uix-button-icon-wrapper">-->
+										<!--<img class="uix-button-icon-watch-like" src="./image/main/oko-like-button.png" alt="我喜歡" title="">-->
+									<!--</span>-->
+                                    <!--<span class="yt-uix-button-content">Like </span>-->
+                                <!--</button>-->
+								<!--<button id="watch-dislike" onclick="" title="我不喜歡" type="button" class=" yt-uix-button" role="button">-->
+									<!--<span class="uix-button-icon-wrapper">-->
+										<!--<img class="uix-button-icon-watch-dislike" src="./image/main/oko-dislike-button.png" alt="我不喜歡" title="">-->
+									<!--</span>-->
+                                <!--</button>-->
+							<!--</span>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="videoCmt">-->
+        <!--<div id="disqus_thread">123</div>-->
+        <!--<script type="text/javascript">-->
+            <!--/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */-->
+            <!--var disqus_shortname = 'testforalistar';-->
+            <!--/* * * DON'T EDIT BELOW THIS LINE * * */-->
+            <!--(function() {-->
+                <!--var dsq = document.createElement('script');-->
+                <!--dsq.type = 'text/javascript';-->
+                <!--dsq.async = true;-->
+                <!--dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';-->
+                <!--(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);-->
+            <!--})();-->
+
+        <!--</script>-->
+        <!--<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>-->
+    <!--</div>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--</body>-->
+<!--</html>-->
